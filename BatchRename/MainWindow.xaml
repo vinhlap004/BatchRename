@@ -6,26 +6,25 @@
         xmlns:local="clr-namespace:BatchRename"
         mc:Ignorable="d"
         Title="My rename" Height="450" Width="800">
-    <Canvas>
-        <Grid>
-            
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="7*"/>
-            </Grid.ColumnDefinitions>
+    <Grid>
 
-            <StackPanel Orientation="Vertical">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3.5*"/>
+            <ColumnDefinition Width="6.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Column="0" Margin="0,0,-0.333,-0.333">
             <StackPanel Orientation="Horizontal">
                 <Button Background="White">
                     <StackPanel Orientation="Horizontal" >
-                        <Image Source="Images/refresh_icon.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                        <Image Source="Images/Refresh.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
                         <TextBlock Text="Refresh" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
                     </StackPanel>
                 </Button>
 
                 <ListView>
                     <StackPanel Orientation="Horizontal" >
-                        <Image Source="Images/help_icon.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                        <Image Source="Images/Help_book.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
                         <TextBlock Text="Help" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
                     </StackPanel>
                 </ListView>
@@ -38,18 +37,160 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                    <ListView>
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/help_icon.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Help" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
-                        </StackPanel>
-                    </ListView>
-                    
+                <ListView>
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/add_menthod.gif" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Add Menthod" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
+                    </StackPanel>
+                </ListView>
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/play_icon.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/clear.gif" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Clear" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
+                    </StackPanel>
+                </Button>
 
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/Top.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/Up.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/Down.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/Bottom.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
 
-                </StackPanel> 
+            <StackPanel Orientation="Horizontal">
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/Save.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/Save.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <TextBlock Text="Presets:  " VerticalAlignment="Center"/>
+                <ComboBox Width="80" VerticalAlignment="Center"/>
 
             </StackPanel>
-        </Grid>
-    </Canvas>
+
+
+            <StackPanel Orientation="Vertical">
+                <Border Margin="5 10 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,0.333,3" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="New Case" VerticalAlignment="Center"/>
+                        <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
+                        <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+
+                <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,0.333,3" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="Move" VerticalAlignment="Center" />
+                        <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
+                        <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+
+                <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,0.333,3" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="Remove Pattern" VerticalAlignment="Center" />
+                        <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
+                        <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+                <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,0.333,3" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="Repalce" VerticalAlignment="Center" />
+                        <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
+                        <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+                <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,0.333,3" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="Trim" VerticalAlignment="Center" />
+                        <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
+                        <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+                <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="Images/Remove.png" Width="10" Height="10" Margin="3,3,0.333,3" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="New Name" VerticalAlignment="Center"/>
+                        <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
+                        <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
 </Window>

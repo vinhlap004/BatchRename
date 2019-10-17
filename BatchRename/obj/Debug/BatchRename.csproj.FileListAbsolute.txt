@@ -1,0 +1,14 @@
+C:\Users\Dell\source\repos\Code_HK1_2019_2020\Code_C#\Do_an1\DoAn1\BatchRename\bin\Debug\BatchRename.exe.config
+C:\Users\Dell\source\repos\Code_HK1_2019_2020\Code_C#\Do_an1\DoAn1\BatchRename\bin\Debug\BatchRename.exe
+C:\Users\Dell\source\repos\Code_HK1_2019_2020\Code_C#\Do_an1\DoAn1\BatchRename\bin\Debug\BatchRename.pdb
+C:\Users\Dell\source\repos\Code_HK1_2019_2020\Code_C#\Do_an1\DoAn1\BatchRename\obj\Debug\BatchRename.csprojAssemblyReference.cache
+C:\Users\Dell\source\repos\Code_HK1_2019_2020\Code_C#\Do_an1\DoAn1\BatchRename\obj\Debug\MainWindow.g.cs
+C:\Users\Dell\source\repos\Code_HK1_2019_2020\Code_C#\Do_an1\DoAn1\BatchRename\obj\Debug\App.g.cs
+C:\Users\Dell\source\repos\Code_HK1_2019_2020\Code_C#\Do_an1\DoAn1\BatchRename\obj\Debug\BatchRename_MarkupCompile.cache
+C:\Users\Dell\source\repos\Code_HK1_2019_2020\Code_C#\Do_an1\DoAn1\BatchRename\obj\Debug\BatchRename_MarkupCompile.lref
+C:\Users\Dell\source\repos\Code_HK1_2019_2020\Code_C#\Do_an1\DoAn1\BatchRename\obj\Debug\MainWindow.baml
+C:\Users\Dell\source\repos\Code_HK1_2019_2020\Code_C#\Do_an1\DoAn1\BatchRename\obj\Debug\BatchRename.g.resources
+C:\Users\Dell\source\repos\Code_HK1_2019_2020\Code_C#\Do_an1\DoAn1\BatchRename\obj\Debug\BatchRename.Properties.Resources.resources
+C:\Users\Dell\source\repos\Code_HK1_2019_2020\Code_C#\Do_an1\DoAn1\BatchRename\obj\Debug\BatchRename.csproj.GenerateResource.cache
+C:\Users\Dell\source\repos\Code_HK1_2019_2020\Code_C#\Do_an1\DoAn1\BatchRename\obj\Debug\BatchRename.exe
+C:\Users\Dell\source\repos\Code_HK1_2019_2020\Code_C#\Do_an1\DoAn1\BatchRename\obj\Debug\BatchRename.pdb

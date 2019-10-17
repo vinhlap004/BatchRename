@@ -95,13 +95,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\refresh_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\play_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="Images\Add.png" />
+    <Resource Include="Images\add_menthod.gif" />
+    <Resource Include="Images\Bottom.png" />
+    <Resource Include="Images\clear.gif" />
+    <Resource Include="Images\Create.png" />
+    <Resource Include="Images\Down.png" />
+    <Resource Include="Images\Erase.png" />
+    <Resource Include="Images\Help_book.png" />
     <Resource Include="Images\help_icon.png" />
+    <Resource Include="Images\play_icon.png" />
+    <Resource Include="Images\Refresh.png" />
+    <Resource Include="Images\refresh_icon.png" />
+    <Resource Include="Images\Remove.png" />
+    <Resource Include="Images\Save.png" />
+    <Resource Include="Images\Top.png" />
+    <Resource Include="Images\Up.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
