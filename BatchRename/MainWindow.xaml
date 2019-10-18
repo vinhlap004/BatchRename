@@ -37,7 +37,7 @@
                 <ColumnDefinition Width="6.5*"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Background="#FAFAFA" Orientation="Vertical" Grid.Column="0" Margin="0,0,515.333,-80.333" Grid.ColumnSpan="2">
+            <StackPanel Background="#FAFAFA" Orientation="Vertical" Grid.Column="0">
 
 
 
