@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BatchRename"
         mc:Ignorable="d"
-        Title="My rename" Height="450" Width="800">
+        Title="My rename" Height="450" Width="800" Loaded="Window_Loaded">
 
     <StackPanel>
         <StackPanel Margin="5 0 0 5">
@@ -33,12 +33,11 @@
         </StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="105*"/>
-                <ColumnDefinition Width="172*"/>
-                <ColumnDefinition Width="515*"/>
+                <ColumnDefinition Width="3.5*"/>
+                <ColumnDefinition Width="6.5*"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Background="#FAFAFA" Orientation="Vertical" Grid.Column="0" Grid.ColumnSpan="2">
+            <StackPanel Background="#FAFAFA" Orientation="Vertical" Grid.Column="0" Grid.Row="0">
 
 
 
@@ -63,22 +62,22 @@
 
                     <Button Background="White">
                         <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/Top.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                            <Image Source="Images/Top.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Button>
                     <Button Background="White">
                         <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/Up.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                            <Image Source="Images/Up.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Button>
                     <Button Background="White">
                         <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/Down.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                            <Image Source="Images/Down.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Button>
                     <Button Background="White">
                         <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/Bottom.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                            <Image Source="Images/Bottom.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -86,7 +85,7 @@
                 <StackPanel Orientation="Horizontal" Margin="5 0 0 5">
                     <Button Background="White">
                         <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/Save.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                            <Image Source="Images/Save.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Button>
                     <Button Background="White">
@@ -229,12 +228,13 @@
                 <TabControl Height="392">
                     <TabItem Header="Rename files">
                         <StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="2 2 2 2">
-                                <StackPanel Orientation="Horizontal" >
-                                    <Image Source="Images/Create.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="Add" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
-                                </StackPanel>
-
+                            <StackPanel Orientation="Horizontal" Margin="2 2 2 2" Background="#FAFAFA">
+                                <Button Background="White" Name="AddFile_Button" Click="AddFile_Button_Click">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source="Images/Create.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Add" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
+                                    </StackPanel>
+                                </Button>
                                 <StackPanel Orientation="Horizontal">
                                     <Button Background="White">
                                         <StackPanel Orientation="Horizontal" >
@@ -259,20 +259,19 @@
                                 </StackPanel>
                             </StackPanel>
 
-
-                            <ListView>
-
-                                <ListView.View>
-                                    <GridView>
-
-                                        <GridViewColumn Header="File Name" Width="120"  />
-                                        <GridViewColumn Header="New filename" Width="140"/>
-                                        <GridViewColumn Header="Path" Width="120" />
-                                        <GridViewColumn Header="Error" Width="120" />
-                                    </GridView>
-                                </ListView.View>
-
-                            </ListView>
+                           
+                                <ListView Name="FileListView" >
+                                    
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="File Name" Width="120" DisplayMemberBinding="{Binding Name}"  />
+                                            <GridViewColumn Header="New filename" Width="140" DisplayMemberBinding="{Binding NewName}"/>
+                                            <GridViewColumn Header="Path" Width="120"  DisplayMemberBinding="{Binding Path}"/>
+                                            <GridViewColumn Header="Error" Width="120" DisplayMemberBinding="{Binding Error}"/>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                            
                         </StackPanel>
                     </TabItem>
 
@@ -309,7 +308,7 @@
                             </StackPanel>
 
 
-                            <ListView>
+                            <ListView Name="FolderListView">
 
                                 <ListView.View>
                                     <GridView>
