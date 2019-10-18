@@ -24,5 +24,11 @@ namespace BatchRename
         {
             InitializeComponent();
         }
+
+        private void Help_Button_Click(object sender, RoutedEventArgs e)
+        {
+            _ = MessageBox.Show("Batch Name Application\nThis app will help you change file name(s) or folder name(s) quickly.\n " +
+                "Written by:\n1712472 - Lo Huy Hung\n1712555 - Chau Vinh Lap");
+        }
     }
 }

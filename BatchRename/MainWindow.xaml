@@ -17,12 +17,12 @@
                     </StackPanel>
                 </Button>
 
-                <ListView>
+                <Button Name="Help_Button" Background="White" Click="Help_Button_Click">
                     <StackPanel Orientation="Horizontal" >
                         <Image Source="Images/Help_book.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
                         <TextBlock Text="Help" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
                     </StackPanel>
-                </ListView>
+                </Button>
                 <Button Background="White">
                     <StackPanel Orientation="Horizontal" >
                         <Image Source="Images/play_icon.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
@@ -33,11 +33,12 @@
         </StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3.5*"/>
-                <ColumnDefinition Width="6.5*"/>
+                <ColumnDefinition Width="105*"/>
+                <ColumnDefinition Width="172*"/>
+                <ColumnDefinition Width="515*"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Background="#FAFAFA" Orientation="Vertical" Grid.Column="0">
+            <StackPanel Background="#FAFAFA" Orientation="Vertical" Grid.Column="0" Grid.ColumnSpan="2">
 
 
 
@@ -224,7 +225,7 @@
             </StackPanel>
 
 
-            <StackPanel Grid.Column="1" Background="#FAFAFF">
+            <StackPanel Grid.Column="2" Background="#FAFAFF">
                 <TabControl Height="392">
                     <TabItem Header="Rename files">
                         <StackPanel>
