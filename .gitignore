@@ -1,7 +1,7 @@
+#ignore files
+*.exe
 
-*.exe
-.vs/BatchRename/v16/Server/sqlite3/storage.ide-wal
-BatchRename/obj/Debug/BatchRename.csproj.FileListAbsolute.txt
-*.exe
-BatchRename/obj/Debug/BatchRename_MarkupCompile.lref
-BatchRename/obj/Debug/BatchRename_MarkupCompile.cache
+#ignore folders
+.vs/
+
+obj/
