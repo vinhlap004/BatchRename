@@ -36,7 +36,16 @@ namespace BatchRename
             public string Error { get; set; }
         }
 
+        //class FolderName
+        //{
+        //    public string nameFolder { get; set; }
+        //    public string newFolderName { get; set; }
+        //    public string PathFolder { get; set; }
+        //    public string errorFolder { get; set; }
+        //}
+
         BindingList<FileName> _fileNames = new BindingList<FileName>();
+        BindingList<FileName> _fileFolder = new BindingList<FileName>();
 
 
         /// <summary>
@@ -92,6 +101,32 @@ namespace BatchRename
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             FileListView.ItemsSource = _fileNames;
+        }
+
+        public void Add_folder_Click(object sender, RoutedEventArgs e)
+        {
+            var folderDialog = new FolderBrowserDialog();
+
+            if (folderDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                var path = folderDialog.SelectedPath + "\\";
+                var foldernames = Directory.GetDirectories(path);
+
+                foreach(var foldername in foldernames)
+                {
+                    var newFolderName = foldername.Remove(0, path.Length);
+                    var FolderName2 = new FileName()
+                    {
+                        Name = newFolderName,
+                        NewName = "",
+                        Path = path,
+                        Error = ""
+                    };
+                    _fileFolder.Add(FolderName2);
+                }
+                
+            }
+
         }
     }
 }

@@ -285,11 +285,12 @@
                 <TabItem Header="Rename folder">
                     <DockPanel>
                         <StackPanel Orientation="Horizontal" Margin="2 2 2 2" DockPanel.Dock="Top">
-                            <StackPanel Orientation="Horizontal" >
-                                <Image Source="Images/Create.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                                <TextBlock Text="Add" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
-                            </StackPanel>
-
+                            <Button Background="White" Name="Add_folder" Click="Add_folder_Click">
+                                <StackPanel Orientation="Horizontal" >
+                                    <Image Source="Images/Create.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="Add" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
+                                </StackPanel>
+                            </Button>
                             <StackPanel Orientation="Horizontal">
                                 <Button Background="White">
                                     <StackPanel Orientation="Horizontal" >
@@ -319,11 +320,10 @@
 
                             <ListView.View>
                                 <GridView>
-
-                                    <GridViewColumn Header="Foder Name" Width="120"  />
-                                    <GridViewColumn Header="New Fodername" Width="140"/>
-                                    <GridViewColumn Header="Path" Width="120" />
-                                    <GridViewColumn Header="Error" Width="120" />
+                                    <GridViewColumn Header="Folder Name" Width="120" DisplayMemberBinding="{Binding Name}"/>
+                                    <GridViewColumn Header="New Folder Name" Width="140" DisplayMemberBinding="{Binding NewName}"/>
+                                    <GridViewColumn Header="Path" Width="120" DisplayMemberBinding="{Binding Path}" />
+                                    <GridViewColumn Header="Error" Width="120" DisplayMemberBinding="{Binding Error}"/>
                                 </GridView>
                             </ListView.View>
 
