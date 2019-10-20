@@ -5,10 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BatchRename"
         mc:Ignorable="d"
-        Title="My rename" Height="450" Width="800">
+        Title="My rename" Height="450" Width="800" Loaded="Window_Loaded">
 
-    <StackPanel>
-        <StackPanel Margin="5 0 0 5">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="9.0*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3.5*"/>
+            <ColumnDefinition Width="6.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="5 0 0 5" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal">
                 <Button Background="White">
                     <StackPanel Orientation="Horizontal" >
@@ -31,304 +42,298 @@
                 </Button>
             </StackPanel>
         </StackPanel>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="105*"/>
-                <ColumnDefinition Width="172*"/>
-                <ColumnDefinition Width="515*"/>
-            </Grid.ColumnDefinitions>
 
-            <StackPanel Background="#FAFAFA" Orientation="Vertical" Grid.Column="0" Grid.ColumnSpan="2">
+        <StackPanel Background="#FAFAFA" Orientation="Vertical" Grid.Column="0" Grid.Row="1">
 
 
 
-                <StackPanel Margin="5 0 0 5" Orientation="Horizontal">
-                    <ListView>
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/add_menthod.gif" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Add Menthod" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
-                        </StackPanel>
-                    </ListView>
-                    <Button Background="White">
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/play_icon.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button Background="White">
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/clear.gif" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Clear" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
-                        </StackPanel>
-                    </Button>
-
-                    <Button Background="White">
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/Top.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button Background="White">
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/Up.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button Background="White">
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/Down.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button Background="White">
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/Bottom.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="5 0 0 5">
-                    <Button Background="White">
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/Save.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button Background="White">
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/Save.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <TextBlock Margin="10 0 10 0" Text="Presets:" VerticalAlignment="Center"/>
-                    <ComboBox Width="80" VerticalAlignment="Center"/>
-
-                </StackPanel>
-
-
-                <StackPanel Orientation="Vertical">
-                    <Border Margin="5 10 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
-
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="10*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-
-                            </Grid.ColumnDefinitions>
-                            <Button BorderThickness="0">
-                                <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,3,3" HorizontalAlignment="Center"/>
-                            </Button>
-                            <TextBlock Grid.Column="1" Text="New Case" VerticalAlignment="Center"/>
-                            <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
-                            <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
-                        </Grid>
-                    </Border>
-
-                    <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
-
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="10*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <Button BorderThickness="0">
-                                <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,3,3" HorizontalAlignment="Center"/>
-                            </Button>
-                            <TextBlock Grid.Column="1" Text="Move" VerticalAlignment="Center" />
-                            <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
-                            <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
-                        </Grid>
-                    </Border>
-
-                    <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
-
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="10*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <Button BorderThickness="0">
-                                <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,3,3" HorizontalAlignment="Center"/>
-                            </Button>
-                            <TextBlock Grid.Column="1" Text="Remove Pattern" VerticalAlignment="Center" />
-                            <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
-                            <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
-                        </Grid>
-                    </Border>
-                    <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
-
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="10*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <Button BorderThickness="0">
-                                <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,3,3" HorizontalAlignment="Center"/>
-                            </Button>
-                            <TextBlock Grid.Column="1" Text="Repalce" VerticalAlignment="Center" />
-                            <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
-                            <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
-                        </Grid>
-                    </Border>
-                    <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
-
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="10*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <Button BorderThickness="0">
-                                <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,3,3" HorizontalAlignment="Center"/>
-                            </Button>
-                            <TextBlock Grid.Column="1" Text="Trim" VerticalAlignment="Center" />
-                            <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
-                            <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
-                        </Grid>
-                    </Border>
-                    <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
-
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="10*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <Button BorderThickness="0">
-                                <Image Grid.Column="0" Source="Images/Remove.png" Width="10" Height="10" Margin="3,3,3,3" HorizontalAlignment="Center"/>
-                            </Button>
-                            <TextBlock Grid.Column="1" Text="New Name" VerticalAlignment="Center"/>
-                            <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
-                            <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
-                        </Grid>
-                    </Border>
-
-                </StackPanel>
-
-                <Border BorderBrush="Black" BorderThickness="1" Margin="5 2 5 5">
-                    <StackPanel Background="#EEEEEE" Orientation="Vertical" >
-
-                        <TextBox HorizontalAlignment="Left" Margin="10 10 0 10" Background="White" Width="200" Height="20"></TextBox>
-
-                        <StackPanel Margin="10 0 0 10" Orientation="Horizontal">
-                            <TextBlock Text="Apply to: "></TextBlock>
-                            <Button  Width="100" Content="Name"></Button>
-                        </StackPanel>
-
-
+            <StackPanel Margin="5 0 0 5" Orientation="Horizontal">
+                <ListView>
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/add_menthod.gif" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Add Menthod" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
                     </StackPanel>
+                </ListView>
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/play_icon.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/clear.gif" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Clear" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/Top.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/Up.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/Down.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/Bottom.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5 0 0 5">
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/Save.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/Save.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <TextBlock Margin="10 0 10 0" Text="Presets:" VerticalAlignment="Center"/>
+                <ComboBox Width="80" VerticalAlignment="Center"/>
+
+            </StackPanel>
+
+
+            <StackPanel Orientation="Vertical">
+                <Border Margin="5 10 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+
+                        </Grid.ColumnDefinitions>
+                        <Button BorderThickness="0">
+                            <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,3,3" HorizontalAlignment="Center"/>
+                        </Button>
+                        <TextBlock Grid.Column="1" Text="New Case" VerticalAlignment="Center"/>
+                        <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
+                        <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
+                    </Grid>
                 </Border>
+
+                <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button BorderThickness="0">
+                            <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,3,3" HorizontalAlignment="Center"/>
+                        </Button>
+                        <TextBlock Grid.Column="1" Text="Move" VerticalAlignment="Center" />
+                        <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
+                        <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+
+                <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button BorderThickness="0">
+                            <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,3,3" HorizontalAlignment="Center"/>
+                        </Button>
+                        <TextBlock Grid.Column="1" Text="Remove Pattern" VerticalAlignment="Center" />
+                        <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
+                        <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+                <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button BorderThickness="0">
+                            <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,3,3" HorizontalAlignment="Center"/>
+                        </Button>
+                        <TextBlock Grid.Column="1" Text="Repalce" VerticalAlignment="Center" />
+                        <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
+                        <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+                <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button BorderThickness="0">
+                            <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,3,3" HorizontalAlignment="Center"/>
+                        </Button>
+                        <TextBlock Grid.Column="1" Text="Trim" VerticalAlignment="Center" />
+                        <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
+                        <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+                <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button BorderThickness="0">
+                            <Image Grid.Column="0" Source="Images/Remove.png" Width="10" Height="10" Margin="3,3,3,3" HorizontalAlignment="Center"/>
+                        </Button>
+                        <TextBlock Grid.Column="1" Text="New Name" VerticalAlignment="Center"/>
+                        <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
+                        <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+
             </StackPanel>
 
+            <Border BorderBrush="Black" BorderThickness="1" Margin="5 2 5 5">
+                <StackPanel Background="#EEEEEE" Orientation="Vertical" >
 
-            <StackPanel Grid.Column="2" Background="#FAFAFF">
-                <TabControl Height="392">
-                    <TabItem Header="Rename files">
-                        <StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="2 2 2 2">
+                    <TextBox HorizontalAlignment="Left" Margin="10 10 0 10" Background="White" Width="200" Height="20"></TextBox>
+
+                    <StackPanel Margin="10 0 0 10" Orientation="Horizontal">
+                        <TextBlock Text="Apply to: "></TextBlock>
+                        <Button  Width="100" Content="Name"></Button>
+                    </StackPanel>
+
+
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <DockPanel Grid.Column="1" Grid.Row="1" Background="#FAFAFF">
+            <TabControl>
+
+                <TabItem Header="Rename files">
+                    <DockPanel>
+                        <StackPanel Orientation="Horizontal" Margin="2 2 2 2" Background="#FAFAFA" DockPanel.Dock="Top">
+                            <Button Background="White" Name="AddFile_Button" Click="AddFile_Button_Click">
                                 <StackPanel Orientation="Horizontal" >
                                     <Image Source="Images/Create.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
                                     <TextBlock Text="Add" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
                                 </StackPanel>
-
-                                <StackPanel Orientation="Horizontal">
-                                    <Button Background="White">
-                                        <StackPanel Orientation="Horizontal" >
-                                            <Image Source="Images/Top.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                                        </StackPanel>
-                                    </Button>
-                                    <Button Background="White">
-                                        <StackPanel Orientation="Horizontal" >
-                                            <Image Source="Images/Up.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                                        </StackPanel>
-                                    </Button>
-                                    <Button Background="White">
-                                        <StackPanel Orientation="Horizontal">
-                                            <Image Source="Images/Down.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                                        </StackPanel>
-                                    </Button>
-                                    <Button Background="White">
-                                        <StackPanel Orientation="Horizontal" >
-                                            <Image Source="Images/Bottom.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                                        </StackPanel>
-                                    </Button>
-                                </StackPanel>
+                            </Button>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Background="White">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source="Images/Top.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Background="White">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source="Images/Up.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Background="White">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Images/Down.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Background="White">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source="Images/Bottom.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
                             </StackPanel>
+                        </StackPanel>
 
-
-                            <ListView>
+                        
+                            <ListView Name="FileListView" DockPanel.Dock="Bottom">
 
                                 <ListView.View>
                                     <GridView>
-
-                                        <GridViewColumn Header="File Name" Width="120"  />
-                                        <GridViewColumn Header="New filename" Width="140"/>
-                                        <GridViewColumn Header="Path" Width="120" />
-                                        <GridViewColumn Header="Error" Width="120" />
+                                        <GridViewColumn Header="File Name" Width="120" DisplayMemberBinding="{Binding Name}"  />
+                                        <GridViewColumn Header="New filename" Width="140" DisplayMemberBinding="{Binding NewName}"/>
+                                        <GridViewColumn Header="Path" Width="120"  DisplayMemberBinding="{Binding Path}"/>
+                                        <GridViewColumn Header="Error" Width="120" DisplayMemberBinding="{Binding Error}"/>
                                     </GridView>
                                 </ListView.View>
-
                             </ListView>
-                        </StackPanel>
-                    </TabItem>
+                      
+                    </DockPanel>
+                </TabItem>
 
-                    <TabItem Header="Rename folder">
-                        <StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="2 2 2 2">
-                                <StackPanel Orientation="Horizontal" >
-                                    <Image Source="Images/Create.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="Add" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
-                                </StackPanel>
 
-                                <StackPanel Orientation="Horizontal">
-                                    <Button Background="White">
-                                        <StackPanel Orientation="Horizontal" >
-                                            <Image Source="Images/Top.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                                        </StackPanel>
-                                    </Button>
-                                    <Button Background="White">
-                                        <StackPanel Orientation="Horizontal" >
-                                            <Image Source="Images/Up.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                                        </StackPanel>
-                                    </Button>
-                                    <Button Background="White">
-                                        <StackPanel Orientation="Horizontal">
-                                            <Image Source="Images/Down.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                                        </StackPanel>
-                                    </Button>
-                                    <Button Background="White">
-                                        <StackPanel Orientation="Horizontal" >
-                                            <Image Source="Images/Bottom.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                                        </StackPanel>
-                                    </Button>
-                                </StackPanel>
+                <TabItem Header="Rename folder">
+                    <DockPanel>
+                        <StackPanel Orientation="Horizontal" Margin="2 2 2 2" DockPanel.Dock="Top">
+                            <StackPanel Orientation="Horizontal" >
+                                <Image Source="Images/Create.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Add" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
                             </StackPanel>
 
-
-                            <ListView>
-
-                                <ListView.View>
-                                    <GridView>
-
-                                        <GridViewColumn Header="Foder Name" Width="120"  />
-                                        <GridViewColumn Header="New Fodername" Width="140"/>
-                                        <GridViewColumn Header="Path" Width="120" />
-                                        <GridViewColumn Header="Error" Width="120" />
-                                    </GridView>
-                                </ListView.View>
-
-                            </ListView>
-
+                            <StackPanel Orientation="Horizontal">
+                                <Button Background="White">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source="Images/Top.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Background="White">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source="Images/Up.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Background="White">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Images/Down.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Background="White">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source="Images/Bottom.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
                         </StackPanel>
-                    </TabItem>
 
-                </TabControl>
-            </StackPanel>
 
-        </Grid>
-    </StackPanel>
+                        <ListView Name="FolderListView" DockPanel.Dock="Bottom" >
+
+                            <ListView.View>
+                                <GridView>
+
+                                    <GridViewColumn Header="Foder Name" Width="120"  />
+                                    <GridViewColumn Header="New Fodername" Width="140"/>
+                                    <GridViewColumn Header="Path" Width="120" />
+                                    <GridViewColumn Header="Error" Width="120" />
+                                </GridView>
+                            </ListView.View>
+
+                        </ListView>
+
+                    </DockPanel>
+                </TabItem>
+
+            </TabControl>
+        </DockPanel>
+
+    </Grid>
 </Window>
