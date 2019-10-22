@@ -44,8 +44,8 @@ namespace BatchRename
             public string errorFolder { get; set; }
         }
 
-        BindingList<FileName> _fileNames = new BindingList<FileName>();
-        BindingList<FolderName> _fileFolder = new BindingList<FolderName>();
+        BindingList<FileName> _fileNames = null;
+        BindingList<FolderName> _fileFolder = null;
 
 
         /// <summary>
@@ -67,7 +67,9 @@ namespace BatchRename
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            _fileNames = new BindingList<FileName>();
             FileListView.ItemsSource = _fileNames;
+            _fileFolder = new BindingList<FolderName>();
             FolderListView.ItemsSource = _fileFolder;
         }
 
@@ -87,11 +89,11 @@ namespace BatchRename
             if (folderDlog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 // save path of you choice
-                string path = folderDlog.SelectedPath;
+                string path = folderDlog.SelectedPath + "\\";
                 string[] getFileNames = Directory.GetFiles(path);
                 foreach (var filename in getFileNames)
                 {
-                    string newFilename = filename.Remove(0, path.Length + 2);
+                    string newFilename = filename.Remove(0, path.Length);
                     var Filename = new FileName()
                     {
                         nameFile = newFilename,
@@ -104,7 +106,6 @@ namespace BatchRename
             }
         }
 
-
         public void Add_folder_Click(object sender, RoutedEventArgs e)
         {
             var folderDialog = new FolderBrowserDialog();
@@ -114,7 +115,7 @@ namespace BatchRename
                 var path = folderDialog.SelectedPath + "\\";
                 var foldernames = Directory.GetDirectories(path);
 
-                foreach(var foldername in foldernames)
+                foreach (var foldername in foldernames)
                 {
                     var newFolderName = foldername.Remove(0, path.Length);
                     var Foldername = new FolderName()
@@ -126,9 +127,39 @@ namespace BatchRename
                     };
                     _fileFolder.Add(Foldername);
                 }
-                
+
             }
 
         }
+
+
+        private void StartBatchFile_Button_Click(object sender, RoutedEventArgs e)
+        {
+            // vd thêm số 1 vào tên file
+            //if (_fileNames != null)
+            //{
+
+            //    foreach (var file in _fileNames)
+            //    {
+            //        string file_name, file_extension;
+
+            //        file_name = Path.GetFileNameWithoutExtension(file.pathFile + file.nameFile); //lấy tên file không bao gồm phần đuôi kiểu file
+            //        file_extension = Path.GetExtension(file.pathFile + file.nameFile); //lấy phần đuôi của file vd: .pdf,.png
+
+            //        File.Move(file.pathFile + file.nameFile, file.pathFile + file_name + "1" + file_extension); //đổi tên file đó thành tên file mới đã được mã hóa
+
+            //        file.newFileName = file_name + "1" + file_extension;
+            //        file.nameFile = file_name + "1" + file_extension;
+            //        FileListView.ItemsSource = _fileNames;
+            //    }
+
+            //}
+        }
+
+        private void StartBatchFolder_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
+
 }
