@@ -270,10 +270,10 @@
 
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="File Name" Width="120" DisplayMemberBinding="{Binding Name}"  />
-                                        <GridViewColumn Header="New filename" Width="140" DisplayMemberBinding="{Binding NewName}"/>
-                                        <GridViewColumn Header="Path" Width="120"  DisplayMemberBinding="{Binding Path}"/>
-                                        <GridViewColumn Header="Error" Width="120" DisplayMemberBinding="{Binding Error}"/>
+                                        <GridViewColumn Header="File Name" Width="120" DisplayMemberBinding="{Binding nameFile}"  />
+                                        <GridViewColumn Header="New filename" Width="140" DisplayMemberBinding="{Binding newFileName}"/>
+                                        <GridViewColumn Header="Path" Width="120"  DisplayMemberBinding="{Binding pathFile}"/>
+                                        <GridViewColumn Header="Error" Width="120" DisplayMemberBinding="{Binding errorFile}"/>
                                     </GridView>
                                 </ListView.View>
                             </ListView>
@@ -320,10 +320,10 @@
 
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="Folder Name" Width="120" DisplayMemberBinding="{Binding Name}"/>
-                                    <GridViewColumn Header="New Folder Name" Width="140" DisplayMemberBinding="{Binding NewName}"/>
-                                    <GridViewColumn Header="Path" Width="120" DisplayMemberBinding="{Binding Path}" />
-                                    <GridViewColumn Header="Error" Width="120" DisplayMemberBinding="{Binding Error}"/>
+                                    <GridViewColumn Header="Folder Name" Width="120" DisplayMemberBinding="{Binding nameFolder}"/>
+                                    <GridViewColumn Header="New Folder Name" Width="140" DisplayMemberBinding="{Binding newFolderName}"/>
+                                    <GridViewColumn Header="Path" Width="120" DisplayMemberBinding="{Binding pathFolder}" />
+                                    <GridViewColumn Header="Error" Width="120" DisplayMemberBinding="{Binding errorFolder}"/>
                                 </GridView>
                             </ListView.View>
 

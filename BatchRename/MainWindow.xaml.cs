@@ -30,22 +30,22 @@ namespace BatchRename
 
         class FileName
         {
-            public string Name { get; set; }
-            public string NewName { get; set; }
-            public string Path { get; set; }
-            public string Error { get; set; }
+            public string nameFile { get; set; }
+            public string newFileName { get; set; }
+            public string pathFile { get; set; }
+            public string errorFile { get; set; }
         }
 
-        //class FolderName
-        //{
-        //    public string nameFolder { get; set; }
-        //    public string newFolderName { get; set; }
-        //    public string PathFolder { get; set; }
-        //    public string errorFolder { get; set; }
-        //}
+        class FolderName
+        {
+            public string nameFolder { get; set; }
+            public string newFolderName { get; set; }
+            public string pathFolder { get; set; }
+            public string errorFolder { get; set; }
+        }
 
         BindingList<FileName> _fileNames = new BindingList<FileName>();
-        BindingList<FileName> _fileFolder = new BindingList<FileName>();
+        BindingList<FolderName> _fileFolder = new BindingList<FolderName>();
 
 
         /// <summary>
@@ -63,6 +63,12 @@ namespace BatchRename
         class BUS
         {
 
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            FileListView.ItemsSource = _fileNames;
+            FolderListView.ItemsSource = _fileFolder;
         }
 
 
@@ -88,20 +94,16 @@ namespace BatchRename
                     string newFilename = filename.Remove(0, path.Length + 2);
                     var Filename = new FileName()
                     {
-                        Name = newFilename,
-                        NewName = "",
-                        Path = path,
-                        Error = ""
+                        nameFile = newFilename,
+                        newFileName = "",
+                        pathFile = path,
+                        errorFile = ""
                     };
                     _fileNames.Add(Filename);
                 }
             }
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            FileListView.ItemsSource = _fileNames;
-        }
 
         public void Add_folder_Click(object sender, RoutedEventArgs e)
         {
@@ -115,14 +117,14 @@ namespace BatchRename
                 foreach(var foldername in foldernames)
                 {
                     var newFolderName = foldername.Remove(0, path.Length);
-                    var FolderName2 = new FileName()
+                    var Foldername = new FolderName()
                     {
-                        Name = newFolderName,
-                        NewName = "",
-                        Path = path,
-                        Error = ""
+                        nameFolder = newFolderName,
+                        newFolderName = "",
+                        pathFolder = path,
+                        errorFolder = ""
                     };
-                    _fileFolder.Add(FolderName2);
+                    _fileFolder.Add(Foldername);
                 }
                 
             }
