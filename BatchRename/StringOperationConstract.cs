@@ -19,20 +19,27 @@ namespace BatchRename
 
     public class NewCaseArgs : StringArgs
     {
-        public string Input { get; set; }
     }
 
     public class FullnameNormalizeArg : StringArgs
     {
-        public string Input { get; set; }
 
     }
 
-    public class Move : StringArgs
+    public class MoveArgs : StringArgs
+    {
+        public int Start { get; set; }
+        public int End { get; set; }
+        // variable to check user want to move cut string to before or end of stringInput
+        public bool Before { get; set; }
+
+    }
+
+
+    public class UniqueName : StringArgs
     {
 
     }
-
 
 
     abstract class StringOperation
@@ -59,10 +66,7 @@ namespace BatchRename
         public override string Operate(string origin)
         {
             var args = Args as NewCaseArgs;
-            var input = args.Input;
-            origin = input.ToUpper();
-            return origin;
-
+            return origin.ToUpper();
         }
     }
 
@@ -71,22 +75,20 @@ namespace BatchRename
         public override string Operate(string origin)
         {
             var args = Args as NewCaseArgs;
-            var input = args.Input;
-            origin = input.ToLower();
-            return origin;
+            return origin.ToLower();
         }
     }
 
 
-    class StringNormalizeNewCase : StringOperation
+    class StringNormalizeNewCaseOperation : StringOperation
     {
         public override string Operate(string origin)
         {
             var args = Args as NewCaseArgs;
-            var input = args.Input;
-            input = input.ToLower();
+            string result = "";
+            result = origin.ToLower();
 
-            char[] letters = input.ToCharArray();
+            char[] letters = result.ToCharArray();
 
             letters[0] = char.ToUpper(letters[0]);
             for (int i = 0; i < letters.Length - 1; i++)
@@ -97,20 +99,21 @@ namespace BatchRename
                 }
             }
 
-            input = new string(letters);
-            return input;
+            result = new string(letters);
+            return result;
         }
     }
 
-    class FullnameNormalize : StringOperation
+    class FullnameNormalizeOperation : StringOperation
     {
         public override string Operate(string origin)
         {
-            string result = "";
+
             var args = Args as FullnameNormalizeArg;
-            var input = args.Input;
+            string result = "";
+            string input = "";
             // remove space in first and last of string
-            input = input.Trim();
+            input = origin.Trim();
 
             // replace two space to one space
             while (input.IndexOf("  ") != -1)
@@ -127,9 +130,53 @@ namespace BatchRename
                 result += fistCharacter + otherCharacter + " ";
             }
 
-
-            input = result;
-            return input;
+            return result;
         }
     }
+
+
+    /// <summary>
+    /// example string have format ISBN FileName, move ISBN to before FileName or opposite 
+    /// </summary>
+    class MoveOperation : StringOperation
+    {
+        public override string Operate(string origin)
+        {
+            var args = Args as MoveArgs;
+
+            string input = origin;
+            var start = args.Start;
+            var end = args.End;
+            var before = args.Before;
+
+            string firstString = input.Substring(start, end).Trim();
+            string secondString = input.Substring(end).Trim();
+            string result = "";
+
+            if (before == true)
+            {
+                result = firstString + " " + secondString;
+            }
+            else
+            {
+                result += secondString + " " + firstString;
+            }
+
+            return result;
+        }
+    }
+
+    class UniqueNameOperation : StringOperation
+    {
+        public override string Operate(string origin)
+        {
+            string result = "";
+            Guid id;
+            id = Guid.NewGuid();
+            result += id;
+            return result;
+        }
+    }
+
+
 }
