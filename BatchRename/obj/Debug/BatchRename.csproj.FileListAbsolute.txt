@@ -26,3 +26,5 @@ F:\HCMUS_Document\Studying\Nam 3\HK1\LT Windows\Project\Project1-Batch rename\Do
 F:\HCMUS_Document\Studying\Nam 3\HK1\LT Windows\Project\Project1-Batch rename\DoAn1\BatchRename\obj\Debug\BatchRename.csproj.GenerateResource.cache
 F:\HCMUS_Document\Studying\Nam 3\HK1\LT Windows\Project\Project1-Batch rename\DoAn1\BatchRename\obj\Debug\BatchRename.exe
 F:\HCMUS_Document\Studying\Nam 3\HK1\LT Windows\Project\Project1-Batch rename\DoAn1\BatchRename\obj\Debug\BatchRename.pdb
+C:\Users\Dell\source\repos\Code_HK1_2019_2020\Code_C#\Do_an1\DoAn1\BatchRename\obj\Debug\MoveOption.g.cs
+C:\Users\Dell\source\repos\Code_HK1_2019_2020\Code_C#\Do_an1\DoAn1\BatchRename\obj\Debug\MoveOption.baml

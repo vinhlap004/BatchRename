@@ -160,6 +160,14 @@ namespace BatchRename
         {
 
         }
+
+
+        private void Move_Button_Click(object sender, RoutedEventArgs e)
+        {
+            MoveOption moveOption = new MoveOption();
+            OptionContent.Content = moveOption;
+            //OptionContent.Content = null;
+        }
     }
 
 }
