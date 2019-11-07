@@ -107,95 +107,49 @@
 
 
                 <StackPanel Orientation="Vertical">
-                    <Border Margin="5 10 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
 
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="10*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
 
-                            </Grid.ColumnDefinitions>
-                            <Button Name="Replace_Button"  BorderThickness="0" Click ="Replace_Button_Click" >
-                                <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,3,3" HorizontalAlignment="Center"/>
-                            </Button>
-                            <TextBlock Grid.Column="1" Text="Replace" VerticalAlignment="Center"/>
-                            <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
-                            <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
-                        </Grid>
-                    </Border>
+                    <Button Name="Replace_Button" Margin="5 5 5 5" Background="#E6E6E6" Click ="Replace_Button_Click" >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Replace" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
 
-                    <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
 
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="10*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <Button BorderThickness="0" Name="NewCase_Button" Click="NewCase_Button_Click">
-                                <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,3,3" HorizontalAlignment="Center"/>
-                            </Button>
-                            <TextBlock Grid.Column="1" Text="New Case" VerticalAlignment="Center" />
-                            <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
-                            <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
-                        </Grid>
-                    </Border>
+                    <Button Name="NewCase_Button" Click="NewCase_Button_Click" Margin="5 5 5 5" Background="#E6E6E6" >
+                        <StackPanel Orientation="Horizontal">
 
-                    <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
+                           
+                            <TextBlock Text="New Case" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
 
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="10*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <Button BorderThickness="0" Name="FullNameNormalize_Button" Click="FullNameNormalize_Button_Click">
-                                <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,3,3" HorizontalAlignment="Center"/>
-                            </Button>
-                            <TextBlock Grid.Column="1" Text="Fullname Normalize" VerticalAlignment="Center" />
-                            <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
-                            <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
-                        </Grid>
-                    </Border>
-                    <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
+                    <Button Name="FullNameNormalize_Button" Click="FullNameNormalize_Button_Click" Margin="5 5 5 5" Background="#E6E6E6" >
+                        <StackPanel Orientation="Horizontal">
 
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="20*"/>
-                                <ColumnDefinition Width="34*"/>
-                                <ColumnDefinition Width="170*"/>
-                                <ColumnDefinition Width="20*"/>
-                                <ColumnDefinition Width="21*"/>
-                            </Grid.ColumnDefinitions>
-                            <Button Name="Move_Button" Click="Move_Button_Click" BorderThickness="0">
-                                <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,3,3" HorizontalAlignment="Center"/>
-                            </Button>
-                            <TextBlock Grid.Column="1" Text="Move" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,1" />
-                            <CheckBox Grid.Column="3" HorizontalAlignment="Right"/>
-                            <Image Grid.Column="4" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="7,4,4,4" HorizontalAlignment="Center"/>
-                        </Grid>
-                    </Border>
-                    <Border Margin="5 5 5 5" BorderBrush="Black" Background="#E6E6E6" BorderThickness="1">
+                           
+                            <TextBlock Text="FullName Normalize" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
 
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="10*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <Button BorderThickness="0" Name="UniqueName" Click="UniqueName_Click">
-                                <Image Grid.Column="0" Source="Images/Add.png" Width="10" Height="10" Margin="3,3,3,3" HorizontalAlignment="Center"/>
-                            </Button>
-                            <TextBlock Grid.Column="1" Text="Unique Name" VerticalAlignment="Center" />
-                            <CheckBox Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0.333,0"></CheckBox>
-                            <Image Grid.Column="3" Source="Images/Erase.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3.667,3,0.333,3" HorizontalAlignment="Center"/>
-                        </Grid>
-                    </Border>
+                    <Button Name="Move_Button" Click="Move_Button_Click" Margin="5 5 5 5" Background="#E6E6E6" >
+                        <StackPanel Orientation="Horizontal">
+
+                           
+                            <TextBlock Text="Move" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+
+                    <Button Name="UniqueName_Button" Click="UniqueName_Button_Click" Margin="5 5 5 5" Background="#E6E6E6" >
+                        <StackPanel Orientation="Horizontal">
+
+                           
+                            <TextBlock Text="Unique Name" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                   
 
                 </StackPanel>
 

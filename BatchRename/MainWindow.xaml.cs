@@ -44,6 +44,24 @@ namespace BatchRename
             public string errorFolder { get; set; }
         }
 
+        class ButtonClickTimes
+        {
+            public int Replace_Button { get; set; }
+            public int NewCase_Button { get; set; }
+            public int FullNameNormalize_Button { get; set; }
+            public int Move_Button { get; set; }
+            public int UniqueName_Button { get; set; }
+
+            public ButtonClickTimes()
+            {
+                Replace_Button = 0;
+                NewCase_Button = 0;
+                FullNameNormalize_Button = 0;
+                Move_Button = 0;
+                UniqueName_Button = 0;
+            }
+        }
+
         BindingList<FileName> _fileNames = null;
         BindingList<FolderName> _fileFolder = null;
 
@@ -162,35 +180,116 @@ namespace BatchRename
         }
 
 
+
+
+        ButtonClickTimes btnClickTimes = new ButtonClickTimes();
+
         private void Move_Button_Click(object sender, RoutedEventArgs e)
         {
+
+            //reset other buttun times click
+            btnClickTimes.NewCase_Button = 0;
+            btnClickTimes.Replace_Button = 0;
+            btnClickTimes.FullNameNormalize_Button = 0;
+            btnClickTimes.UniqueName_Button = 0;
+
             MoveOption moveOption = new MoveOption();
-            OptionContent.Content = moveOption;
-            //OptionContent.Content = null;
+            if (btnClickTimes.Move_Button % 2 == 0)
+            {
+                btnClickTimes.Move_Button++;
+                OptionContent.Content = moveOption;
+            }
+            else
+            {
+                OptionContent.Content = null;
+                btnClickTimes.Move_Button++;
+            }
         }
+               
 
         private void Replace_Button_Click(object sender, RoutedEventArgs e)
         {
+            //reset other buttun times click
+            btnClickTimes.NewCase_Button = 0;
+            btnClickTimes.Move_Button = 0;
+            btnClickTimes.FullNameNormalize_Button = 0;
+            btnClickTimes.UniqueName_Button = 0;
+
             ReplaceOption rOption = new ReplaceOption();
-            OptionContent.Content = rOption;
+          
+            if (btnClickTimes.Replace_Button % 2 == 0)
+            {
+                btnClickTimes.Replace_Button++;
+                OptionContent.Content = rOption;
+            }
+            else
+            {
+                OptionContent.Content = null;
+                btnClickTimes.Replace_Button++;
+            }
         }
 
         private void NewCase_Button_Click(object sender, RoutedEventArgs e)
         {
+            //reset other buttun times click
+            btnClickTimes.Move_Button = 0;
+            btnClickTimes.Replace_Button = 0;
+            btnClickTimes.FullNameNormalize_Button = 0;
+            btnClickTimes.UniqueName_Button = 0;
+
             NewCaseOption nOption = new NewCaseOption();
-            OptionContent.Content = nOption;
+            if (btnClickTimes.NewCase_Button % 2 == 0)
+            {
+                btnClickTimes.NewCase_Button++;
+                OptionContent.Content = nOption;
+            }
+            else
+            {
+                OptionContent.Content = null;
+                btnClickTimes.NewCase_Button++;
+            }
         }
 
         private void FullNameNormalize_Button_Click(object sender, RoutedEventArgs e)
         {
+            //reset other buttun times click
+            btnClickTimes.NewCase_Button = 0;
+            btnClickTimes.Move_Button = 0;
+            btnClickTimes.Replace_Button = 0;
+            btnClickTimes.UniqueName_Button = 0;
+
             FullNameNormalizeOption fOption = new FullNameNormalizeOption();
-            OptionContent.Content = fOption;
+            if (btnClickTimes.FullNameNormalize_Button % 2 == 0)
+            {
+                btnClickTimes.FullNameNormalize_Button++;
+                OptionContent.Content = fOption;
+            }
+            else
+            {
+                OptionContent.Content = null;
+                btnClickTimes.FullNameNormalize_Button++;
+            }
         }
 
-        private void UniqueName_Click(object sender, RoutedEventArgs e)
+        private void UniqueName_Button_Click(object sender, RoutedEventArgs e)
         {
+            //reset other buttun times click
+            btnClickTimes.NewCase_Button = 0;
+            btnClickTimes.Move_Button = 0;
+            btnClickTimes.Replace_Button = 0;
+            btnClickTimes.FullNameNormalize_Button = 0;
+
             UniqueNameOption uOption = new UniqueNameOption();
-            OptionContent.Content = uOption;
+            if (btnClickTimes.UniqueName_Button % 2 == 0)
+            {
+                btnClickTimes.UniqueName_Button++;
+                OptionContent.Content = uOption;
+            }
+            else
+            {
+                OptionContent.Content = null;
+                btnClickTimes.UniqueName_Button++;
+            }
         }
     }
 
