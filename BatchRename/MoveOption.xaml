@@ -5,20 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BatchRename"
              mc:Ignorable="d" 
-             d:DesignHeight="140" d:DesignWidth="300"
+             d:DesignHeight="300" d:DesignWidth="500"
              Name="MoveOptionView">
+
     <DockPanel>
-        <Canvas>
+        <DockPanel LastChildFill="True">
 
-            <TextBlock Text="Start" Canvas.Left="28" Canvas.Top="10"/>
-            <TextBox Name="Move_Start_TextBox" Width="200" BorderBrush="Black" BorderThickness="1" Canvas.Left="61" Canvas.Top="9"/>
+            <DockPanel DockPanel.Dock="Top">
+                <TextBlock Text="Start" Margin="5"/>
+                <TextBox Name="Move_Start_TextBox" BorderBrush="Black" BorderThickness="1" Margin="5" />
+            </DockPanel>
 
-            <TextBlock Text="End" Canvas.Left="29" Canvas.Top="46"/>
-            <TextBox Name="Move_End_TextBox" Width="200" BorderBrush="Black" BorderThickness="1" Canvas.Left="61" Canvas.Top="45"/>
-            <CheckBox Name="Move_toAfter" Content="Move to after" Canvas.Left="164" Canvas.Top="78"/>
-            <Button Name="Add_MoveMenthod_Button" Content="Add List" Canvas.Left="207" Canvas.Top="107" Height="26"/>
 
-        </Canvas>
+            <DockPanel DockPanel.Dock="Top">
+                <TextBlock Text="End" Margin="5 5 10 5"/>
+                <TextBox Name="Move_End_TextBox" BorderBrush="Black" BorderThickness="1" Margin="5" />
+            </DockPanel>
+            <CheckBox Name="Move_toAfter" Content="Move to after" Margin="5 5 5 20"/>
+            <Button Name="Add_MoveMenthod_Button" Content="Add List" Width="100" Height="26"/>
+
+        </DockPanel>
     </DockPanel>
 
 </UserControl>
