@@ -1,30 +1,25 @@
-﻿<UserControl x:Class="BatchRename.MoveOption"
+﻿<UserControl x:Class="BatchRename.ReplaceOption"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BatchRename"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="500"
-             Name="MoveOptionView">
-
+             d:DesignHeight="300" d:DesignWidth="500">
     <DockPanel>
         <DockPanel LastChildFill="True">
-
+            
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock Text="Start" Margin="5"/>
-                <TextBox Name="Move_Start_TextBox" Margin="5 5 5 5" />
+                <TextBlock Text="Replace" Margin="5"></TextBlock>
+                <TextBox  Margin="5 5 5 5"></TextBox>
             </DockPanel>
 
-
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock Text="End" Margin="5"/>
-                <TextBox Name="Move_End_TextBox"  Margin="10 5 5 5" />
+                <TextBlock Text="To" Margin="5"></TextBlock>
+                <TextBox Margin="34 5 5 5"></TextBox>
             </DockPanel>
-            <CheckBox Name="Move_toAfter" Content="Move to after" Margin="5 5 5 20"/>
-            <Button Name="Add_MoveMenthod_Button" Content="Add to list" Width="80" Height="25"/>
 
+            <Button Content="Add to list" Width="80" Height="25" Margin="100 0 0 0"></Button>
         </DockPanel>
     </DockPanel>
-
 </UserControl>

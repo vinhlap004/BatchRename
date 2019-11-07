@@ -57,10 +57,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FullNameNormalizeOption.xaml.cs">
+      <DependentUpon>FullNameNormalizeOption.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MoveOption.xaml.cs">
       <DependentUpon>MoveOption.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewCaseOption.xaml.cs">
+      <DependentUpon>NewCaseOption.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReplaceOption.xaml.cs">
+      <DependentUpon>ReplaceOption.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StringOperationConstract.cs" />
+    <Compile Include="UniqueNameOption.xaml.cs">
+      <DependentUpon>UniqueNameOption.xaml</DependentUpon>
+    </Compile>
+    <Page Include="FullNameNormalizeOption.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -74,6 +90,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MoveOption.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewCaseOption.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReplaceOption.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UniqueNameOption.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

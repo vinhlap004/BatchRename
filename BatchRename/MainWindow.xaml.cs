@@ -168,6 +168,30 @@ namespace BatchRename
             OptionContent.Content = moveOption;
             //OptionContent.Content = null;
         }
+
+        private void Replace_Button_Click(object sender, RoutedEventArgs e)
+        {
+            ReplaceOption rOption = new ReplaceOption();
+            OptionContent.Content = rOption;
+        }
+
+        private void NewCase_Button_Click(object sender, RoutedEventArgs e)
+        {
+            NewCaseOption nOption = new NewCaseOption();
+            OptionContent.Content = nOption;
+        }
+
+        private void FullNameNormalize_Button_Click(object sender, RoutedEventArgs e)
+        {
+            FullNameNormalizeOption fOption = new FullNameNormalizeOption();
+            OptionContent.Content = fOption;
+        }
+
+        private void UniqueName_Click(object sender, RoutedEventArgs e)
+        {
+            UniqueNameOption uOption = new UniqueNameOption();
+            OptionContent.Content = uOption;
+        }
     }
 
 }
