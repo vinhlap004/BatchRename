@@ -83,6 +83,7 @@ namespace BatchRename
 
         }
 
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             _fileNames = new BindingList<FileName>();
