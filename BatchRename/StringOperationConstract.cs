@@ -4,10 +4,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace BatchRename
 {
-    public class StringArgs
+    public class StringArgs : MainWindow
     {
 
     }
@@ -64,6 +65,7 @@ namespace BatchRename
 
     class ReplaceOperation : StringOperation, INotifyPropertyChanged
     {
+       
         public override string Name => "Replace";
 
         public override string Description
@@ -90,7 +92,7 @@ namespace BatchRename
 
         public override void Config()
         {
-            throw new NotImplementedException();
+           
         }
 
         public override string Operate(string origin)
