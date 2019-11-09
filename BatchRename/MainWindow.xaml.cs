@@ -92,19 +92,11 @@ namespace BatchRename
             FolderListView.ItemsSource = _fileFolder;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         private void frm_menu_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
         }
-=======
->>>>>>> parent of 1c731a0... update 1
-=======
->>>>>>> parent of 1c731a0... update 1
-=======
->>>>>>> parent of 1c731a0... update 1
 
         // Phần xử lý sự kiện
         private void Help_Button_Click(object sender, RoutedEventArgs e)
@@ -233,13 +225,11 @@ namespace BatchRename
             //btnClickTimes.FullNameNormalize_Button = 0;
             //btnClickTimes.UniqueName_Button = 0;
 
-<<<<<<< HEAD
+
             //if (btnClickTimes.Replace_Button % 2 == 0)
             //{
             //    btnClickTimes.Replace_Button++;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
             //    var prototype1 = new ReplaceOperation()
             //    {
@@ -265,24 +255,19 @@ namespace BatchRename
             //}
             ReplaceControl replaceControl = new ReplaceControl();
             replaceControl.ShowDialog();
-=======
-=======
->>>>>>> parent of 1c731a0... update 1
-=======
->>>>>>> parent of 1c731a0... update 1
-            ReplaceOption rOption = new ReplaceOption();
+
+            //ReplaceOption rOption = new ReplaceOption();
           
-            if (btnClickTimes.Replace_Button % 2 == 0)
-            {
-                btnClickTimes.Replace_Button++;
-                OptionContent.Content = rOption;
-            }
-            else
-            {
-                OptionContent.Content = null;
-                btnClickTimes.Replace_Button++;
-            }
->>>>>>> parent of 1c731a0... update 1
+            //if (btnClickTimes.Replace_Button % 2 == 0)
+            //{
+            //    btnClickTimes.Replace_Button++;
+            //    OptionContent.Content = rOption;
+            //}
+            //else
+            //{
+            //    OptionContent.Content = null;
+            //    btnClickTimes.Replace_Button++;
+            //}
         }
 
         private void NewCase_Button_Click(object sender, RoutedEventArgs e)
