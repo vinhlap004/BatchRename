@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BatchRename
 {
     /// <summary>
-    /// Interaction logic for UniqueNameOption.xaml
+    /// Interaction logic for MoveControl.xaml
     /// </summary>
-    public partial class UniqueNameOption : UserControl
+    public partial class MoveControl : Window
     {
-        public UniqueNameOption()
+        public MoveControl()
         {
             InitializeComponent();
         }

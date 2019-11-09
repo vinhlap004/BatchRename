@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BatchRename
 {
     /// <summary>
-    /// Interaction logic for NewCaseOption.xaml
+    /// Interaction logic for FullNameNormalizeControl.xaml
     /// </summary>
-    public partial class NewCaseOption : UserControl
+    public partial class FullNameNormalizeControl : Window
     {
-        public NewCaseOption()
+        public FullNameNormalizeControl()
         {
             InitializeComponent();
         }

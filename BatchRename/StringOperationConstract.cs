@@ -354,7 +354,6 @@ namespace BatchRename
             {
                 Args = new UniqueNameArgs()
                 {
-
                 }
             };
         }

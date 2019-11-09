@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,25 +16,13 @@ using System.Windows.Shapes;
 namespace BatchRename
 {
     /// <summary>
-    /// Interaction logic for ReplaceOption.xaml
+    /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class ReplaceOption : UserControl
+    public partial class Page1 : Page
     {
-
-        string From;
-        string To;
-        StringArgs args = new ReplaceArgs();
-        public ReplaceOption()
+        public Page1()
         {
             InitializeComponent();
-         
-        }
-        private void Replace_AddtoList_Button_Click(object sender, RoutedEventArgs e)
-        {
-            From = Replace_From_TextBox.Text;
-            To = Replace_To_TextBox.Text;
-            
-            Content = null;
         }
     }
 }
