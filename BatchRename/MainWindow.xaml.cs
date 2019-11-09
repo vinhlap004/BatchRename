@@ -93,10 +93,13 @@ namespace BatchRename
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         private void frm_menu_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
         }
+=======
+>>>>>>> parent of 1c731a0... update 1
 =======
 >>>>>>> parent of 1c731a0... update 1
 
@@ -232,6 +235,7 @@ namespace BatchRename
             //{
             //    btnClickTimes.Replace_Button++;
 
+<<<<<<< HEAD
 
             //    var prototype1 = new ReplaceOperation()
             //    {
@@ -258,6 +262,8 @@ namespace BatchRename
             ReplaceControl replaceControl = new ReplaceControl();
             replaceControl.ShowDialog();
 =======
+=======
+>>>>>>> parent of 1c731a0... update 1
             ReplaceOption rOption = new ReplaceOption();
           
             if (btnClickTimes.Replace_Button % 2 == 0)
