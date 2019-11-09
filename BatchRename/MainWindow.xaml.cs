@@ -80,84 +80,25 @@ namespace BatchRename
         /// </summary>
         class BUS
         {
-            
+
         }
 
-        public void AddAction(StringArgs args)
-        {
-            
-        }
 
-        List<StringOperation> _prototypes;
-        
-        
-        BindingList<StringOperation> _actions = new BindingList<StringOperation>();
-
-        
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var prototype1 = new ReplaceOperation()
-            {
-                Args = new ReplaceArgs()
-                {
-                    From = "From",
-                    To = "To"
-                }
-            };
-
-            var prototype2 = new NewCaseOperation()
-            {
-                Args = new NewCaseArgs()
-                {
-
-                }
-            };
-
-            var prototype3 = new FullnameNormalizeOperation()
-            {
-                Args = new FullnameNormalizeArg()
-                {
-
-                }
-            };
-
-            var prototype4 = new MoveOperation()
-            {
-                Args = new MoveArgs()
-                {
-                    Before = true,
-                    Start = 0,
-                    End = 13
-                }
-
-            };
-
-            var prototype5 = new UniqueNameOperation()
-            {
-                Args = new UniqueNameArgs()
-                {
-
-                }
-            };
-            _prototypes = new List<StringOperation>();
-            _prototypes.Add(prototype1);
-            _prototypes.Add(prototype2);
-            _prototypes.Add(prototype3);
-            _prototypes.Add(prototype4);
-            _prototypes.Add(prototype5);
-
-            
-
             _fileNames = new BindingList<FileName>();
             FileListView.ItemsSource = _fileNames;
             _fileFolder = new BindingList<FolderName>();
             FolderListView.ItemsSource = _fileFolder;
         }
 
+<<<<<<< HEAD
         private void frm_menu_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
         }
+=======
+>>>>>>> parent of 1c731a0... update 1
 
         // Phần xử lý sự kiện
         private void Help_Button_Click(object sender, RoutedEventArgs e)
@@ -247,12 +188,9 @@ namespace BatchRename
         }
 
 
-        
+
 
         ButtonClickTimes btnClickTimes = new ButtonClickTimes();
-
-        public object Replace_From_TextBox { get; private set; }
-        public object Replace_To_TextBox { get; private set; }
 
         private void Move_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -289,6 +227,7 @@ namespace BatchRename
             //btnClickTimes.FullNameNormalize_Button = 0;
             //btnClickTimes.UniqueName_Button = 0;
 
+<<<<<<< HEAD
             //if (btnClickTimes.Replace_Button % 2 == 0)
             //{
             //    btnClickTimes.Replace_Button++;
@@ -318,6 +257,20 @@ namespace BatchRename
             //}
             ReplaceControl replaceControl = new ReplaceControl();
             replaceControl.ShowDialog();
+=======
+            ReplaceOption rOption = new ReplaceOption();
+          
+            if (btnClickTimes.Replace_Button % 2 == 0)
+            {
+                btnClickTimes.Replace_Button++;
+                OptionContent.Content = rOption;
+            }
+            else
+            {
+                OptionContent.Content = null;
+                btnClickTimes.Replace_Button++;
+            }
+>>>>>>> parent of 1c731a0... update 1
         }
 
         private void NewCase_Button_Click(object sender, RoutedEventArgs e)
