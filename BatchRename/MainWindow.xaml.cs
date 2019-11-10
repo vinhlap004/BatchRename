@@ -181,30 +181,36 @@ namespace BatchRename
                     }
                 }
                 FileListView.ItemsSource = _fileNames;
+                System.Windows.Forms.MessageBox.Show("Change Name success!");
             }
         }
 
         private void StartBatchFolder_Button_Click(object sender, RoutedEventArgs e)
         {
-            //vd thêm số 1 vào tên file
             if (_fileFolder != null)
             {
-                List<FolderName> folders = new List<FolderName>();
+                List<FolderName> prefoldername = new List<FolderName>();
                 foreach (var folder in _fileFolder)
                 {
-                    string file_name;
+                    var folder_name = folder.nameFolder;
 
-                    FolderName folder1 = new FolderName();
+                    var FolderName = new FolderName();
                     foreach (var action in _actions)
                     {
-                        System.IO.Directory.Move( folder.pathFolder + action.Operate(folder.nameFolder), folder.pathFolder + folder.nameFolder);
-                        System.IO.Directory.Move(folder.pathFolder + folder.nameFolder, folder.pathFolder + action.Operate(folder.nameFolder)); //đổi tên file đó thành tên file mới đã được mã hóa
-                        folder1.newFolderName = action.Operate(folder.nameFolder);
-                        folder.nameFolder = folder.nameFolder;
+                        var newname = action.Operate(folder_name);
+                        Guid g = Guid.NewGuid();
+                        string guidstring = g.ToString();
+                        string temp = folder.pathFolder + guidstring;
+                        Directory.Move(folder.pathFolder + folder.nameFolder, temp);
+                        Directory.Move(temp, folder.pathFolder+newname);
+                        FolderName.nameFolder = folder_name;
+                        FolderName.newFolderName = newname;
+                        FolderName.pathFolder = folder.pathFolder;
                     }
-                    folders.Add(folder);
+                    prefoldername.Add(FolderName);
                 }
-                FileListView.ItemsSource = folders;
+                FolderListView.ItemsSource = prefoldername;
+                System.Windows.Forms.MessageBox.Show("Change Name success!");
             }
         }
 
