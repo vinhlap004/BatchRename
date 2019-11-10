@@ -275,6 +275,16 @@ namespace BatchRename
         {
 
         }
+
+        private void PreviewFiles_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PreviewFolders_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 }

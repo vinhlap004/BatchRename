@@ -180,7 +180,6 @@
                                     </StackPanel>
                                 </Button>
                             </StackPanel>
-
                         </StackPanel>
 
 
@@ -225,7 +224,7 @@
                                         <TextBlock Text="STARTBATCH" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
                                     </StackPanel>
                                 </Button>
-
+                                
                             </StackPanel>
                         </StackPanel>
 
