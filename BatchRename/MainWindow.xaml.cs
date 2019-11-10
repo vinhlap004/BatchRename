@@ -190,12 +190,28 @@ namespace BatchRename
 
         private void PreviewFolders_Button_Click(object sender, RoutedEventArgs e)
         {
+            if(_fileFolder !=null)
+            {
+                List<FolderName> prefoldername = new List<FolderName>();
+                foreach(var folder in _fileFolder)
+                {
+                    var folder_name = folder.nameFolder;
 
+                    var FolderName = new FolderName();
+                    foreach(var action in _actions)
+                    {
+                        FolderName.nameFolder = folder_name;
+                        FolderName.newFolderName = action.Operate(folder_name);
+                        FolderName.pathFolder = folder.pathFolder;
+                    }
+                    prefoldername.Add(FolderName);
+                }
+                FolderListView.ItemsSource = prefoldername;
+            }
         }
 
         private void PreviewFiles_Button_Click(object sender, RoutedEventArgs e)
         {
-            //vd thêm số 1 vào tên file
             if (_fileNames != null)
             {
                 List<FileName> prefilename = new List<FileName>();
@@ -217,6 +233,9 @@ namespace BatchRename
                 }
                 FileListView.ItemsSource = prefilename;
             }
+
+
+
         }
 
 
@@ -304,15 +323,7 @@ namespace BatchRename
             _actions.Add(action.Clone());
         }
 
-        private void PreviewFolders_Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void PreviewFiles_Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
     }
 
 }
