@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel>
             <RadioButton Content="Unique Name" GroupName="UniqueName" Margin="5 5 5 5" IsChecked="True"></RadioButton>
-            <Button Content="Add to list" Width="80" Height="25"></Button>
+            <Button Name="Add_UniqueName_Menthod_Button" Click="Add_UniqueName_Menthod_Button_Click" Content="Add to list" Width="80" Height="25"></Button>
         </StackPanel>
     </Grid>
 </Window>

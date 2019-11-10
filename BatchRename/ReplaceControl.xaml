@@ -20,7 +20,7 @@
                     <TextBox Name="Replace_To_TextBox" Margin="20 5 5 5"></TextBox>
                 </DockPanel>
 
-                <Button Content="Add to list" Name="Replace_AddtoList_Button" Width="80" Height="25" Margin="100 0 0 0"></Button>
+                <Button Content="Add to list" Name="Replace_AddtoList_Button" Click="Replace_AddtoList_Button_Click" Width="80" Height="25" Margin="100 0 0 0"></Button>
             </DockPanel>
         </DockPanel>
     </Grid>

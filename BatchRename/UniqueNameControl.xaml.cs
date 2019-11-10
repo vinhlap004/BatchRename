@@ -19,9 +19,15 @@ namespace BatchRename
     /// </summary>
     public partial class UniqueNameControl : Window
     {
-        public UniqueNameControl()
+        public UniqueNameControl(StringArgs args)
         {
             InitializeComponent();
+        }
+
+        private void Add_UniqueName_Menthod_Button_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+            Close();
         }
     }
 }

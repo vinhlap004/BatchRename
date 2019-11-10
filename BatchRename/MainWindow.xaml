@@ -34,171 +34,119 @@
                         <TextBlock Text="Help" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
                     </StackPanel>
                 </Button>
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/Load.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Background="White">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Images/Save.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
 
             </StackPanel>
         </StackPanel>
 
-        <Grid Grid.Row="1" Background="#FAFAFA">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.7*"/>
-                <RowDefinition Height="10*"/>
+        <Grid Grid.Row="1" Background="#FAFAFA" Height="393" VerticalAlignment="Bottom">
 
-            </Grid.RowDefinitions>
-
-            <StackPanel Grid.Row="0"   Grid.Column="0" >
-
-                <StackPanel Margin="5 0 0 5" Orientation="Horizontal">
-                    <ListView>
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/add_menthod.gif" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Add Menthod" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
-                        </StackPanel>
-                    </ListView>
-                    <Button Background="White">
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/play_icon.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button Background="White">
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/clear.gif" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Clear" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
-                        </StackPanel>
-                    </Button>
-
-                    <Button Background="White">
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/Top.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button Background="White">
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/Up.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button Background="White">
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/Down.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button Background="White">
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/Bottom.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
-            </StackPanel>
             <StackPanel Grid.Row="1" Margin="0 5 0 0">
-                <StackPanel Orientation="Horizontal" Margin="5 0 0 5">
-                    <Button Background="White">
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/Save.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button Background="White">
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Source="Images/Save.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <TextBlock Margin="10 0 10 0" Text="Presets:" VerticalAlignment="Center"/>
-                    <ComboBox Width="80" VerticalAlignment="Center"/>
 
-                </StackPanel>
 
                 <DockPanel>
 
-                    
-                        <TabControl>
+
+                    <TabControl>
 
 
-                            <TabItem Header="String operation">
-                                <DockPanel>
-                                    <!--<Grid>
+                        <TabItem Header="String operation">
+                            <DockPanel>
+                                <!--<Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="3*"/>
                                             <RowDefinition Height="1*"/>
                                         </Grid.RowDefinitions>-->
-                                        <StackPanel DockPanel.Dock="Top" Orientation="Vertical">
+                                <StackPanel DockPanel.Dock="Top" Orientation="Vertical">
 
 
-                                            <Button Name="Replace_Button" Margin="5 5 5 5" Background="#E6E6E6" Click ="Replace_Button_Click" >
-                                                <StackPanel Orientation="Horizontal">
-                                                    <TextBlock Text="Replace" VerticalAlignment="Center"/>
-                                                </StackPanel>
-                                            </Button>
-
-
-                                            <Button Name="NewCase_Button" Click="NewCase_Button_Click" Margin="5 5 5 5" Background="#E6E6E6" >
-                                                <StackPanel Orientation="Horizontal">
-
-
-                                                    <TextBlock Text="New Case" VerticalAlignment="Center"/>
-                                                </StackPanel>
-                                            </Button>
-
-                                            <Button Name="FullNameNormalize_Button" Click="FullNameNormalize_Button_Click" Margin="5 5 5 5" Background="#E6E6E6" >
-                                                <StackPanel Orientation="Horizontal">
-
-
-                                                    <TextBlock Text="FullName Normalize" VerticalAlignment="Center"/>
-                                                </StackPanel>
-                                            </Button>
-
-                                            <Button Name="Move_Button" Click="Move_Button_Click" Margin="5 5 5 5" Background="#E6E6E6" >
-                                                <StackPanel Orientation="Horizontal">
-
-
-                                                    <TextBlock Text="Move" VerticalAlignment="Center"/>
-                                                </StackPanel>
-                                            </Button>
-
-
-                                            <Button Name="UniqueName_Button" Click="UniqueName_Button_Click" Margin="5 5 5 5" Background="#E6E6E6" >
-                                                <StackPanel Orientation="Horizontal">
-
-
-                                                    <TextBlock Text="Unique Name" VerticalAlignment="Center"/>
-                                                </StackPanel>
-                                            </Button>
-
-
-
+                                    <Button Name="Replace_Button" Margin="5 5 5 5" Background="#E6E6E6" Click ="Replace_Button_Click" >
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Replace" VerticalAlignment="Center"/>
                                         </StackPanel>
+                                    </Button>
 
-                                        <DockPanel Height="140" DockPanel.Dock="Bottom" >
-                                            <ContentControl Name="OptionContent"/>
-                                        </DockPanel>
-                                        
-                                    
+
+                                    <Button Name="NewCase_Button" Click="NewCase_Button_Click" Margin="5 5 5 5" Background="#E6E6E6" >
+                                        <StackPanel Orientation="Horizontal">
+
+
+                                            <TextBlock Text="New Case" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+
+                                    <Button Name="FullNameNormalize_Button" Click="FullNameNormalize_Button_Click" Margin="5 5 5 5" Background="#E6E6E6" >
+                                        <StackPanel Orientation="Horizontal">
+
+
+                                            <TextBlock Text="FullName Normalize" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+
+                                    <Button Name="Move_Button" Click="Move_Button_Click" Margin="5 5 5 5" Background="#E6E6E6" >
+                                        <StackPanel Orientation="Horizontal">
+
+
+                                            <TextBlock Text="Move" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+
+
+                                    <Button Name="UniqueName_Button" Click="UniqueName_Button_Click" Margin="5 5 5 5" Background="#E6E6E6" >
+                                        <StackPanel Orientation="Horizontal">
+
+
+                                            <TextBlock Text="Unique Name" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+
+
+
+                                </StackPanel>
+
+                                <DockPanel Height="140" DockPanel.Dock="Bottom" >
+                                    <ContentControl Name="OptionContent"/>
                                 </DockPanel>
-                            </TabItem>
 
 
-                            <TabItem Header="List action">
+                            </DockPanel>
+                        </TabItem>
 
-                                <ListBox Name="operationsListBox" Height="165">
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackPanel >
-                                                <StackPanel.ContextMenu>
-                                                    <ContextMenu>
-                                                        <!--<MenuItem Header="Edit" Click="MenuItem_Click"/>-->
-                                                        <MenuItem Header="Edit" />
-                                                    </ContextMenu>
-                                                </StackPanel.ContextMenu>
-                                                <TextBlock Text="{Binding Name}" Foreground="Red" FontWeight="Bold"/>
-                                                <TextBlock Text="{Binding Description}" />
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
 
-                            </TabItem>
-                        </TabControl>
-                    </DockPanel>
-                    <!--end test code-->
+                        <TabItem Header="List action">
 
-              
+                            <ListBox Name="actionsListBox" Height="165">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel >
+                                            <StackPanel.ContextMenu>
+                                                <ContextMenu>
+                                                    <!--<MenuItem Header="Edit" Click="MenuItem_Click"/>-->
+                                                    <MenuItem Header="Edit" />
+                                                </ContextMenu>
+                                            </StackPanel.ContextMenu>
+                                            <TextBlock Text="{Binding Name}" Foreground="Red" FontWeight="Bold"/>
+                                            <TextBlock Text="{Binding Description}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                        </TabItem>
+                    </TabControl>
+                </DockPanel>
+                <!--end test code-->
+
+
 
             </StackPanel>
 
@@ -213,30 +161,18 @@
                             <Button Background="White" Name="AddFile_Button" Click="AddFile_Button_Click">
                                 <StackPanel Orientation="Horizontal" >
                                     <Image Source="Images/Create.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="Add" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
+                                    <TextBlock Text="ADD" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
                                 </StackPanel>
                             </Button>
                             <StackPanel Orientation="Horizontal">
-                                <Button Background="White">
+                                <Button Background="White" Name="PreviewFiles_Button" Click="PreviewFiles_Button_Click">
                                     <StackPanel Orientation="Horizontal" >
-                                        <Image Source="Images/Top.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
+                                        <Image Source="Images/Eye.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="PREVIEW" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
                                     </StackPanel>
                                 </Button>
-                                <Button Background="White">
-                                    <StackPanel Orientation="Horizontal" >
-                                        <Image Source="Images/Up.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                                    </StackPanel>
-                                </Button>
-                                <Button Background="White">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Image Source="Images/Down.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                                    </StackPanel>
-                                </Button>
-                                <Button Background="White">
-                                    <StackPanel Orientation="Horizontal" >
-                                        <Image Source="Images/Bottom.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                                    </StackPanel>
-                                </Button>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
                                 <Button Background="White" Name="StartBatchFile_Button" Click="StartBatchFile_Button_Click">
                                     <StackPanel Orientation="Horizontal" >
                                         <Image Source="Images/play_icon.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
@@ -244,6 +180,7 @@
                                     </StackPanel>
                                 </Button>
                             </StackPanel>
+
                         </StackPanel>
 
 
@@ -257,9 +194,12 @@
                                     <GridViewColumn Header="Error" Width="120" DisplayMemberBinding="{Binding errorFile}"/>
                                 </GridView>
                             </ListView.View>
+
+
                         </ListView>
 
                     </DockPanel>
+
                 </TabItem>
 
 
@@ -269,31 +209,16 @@
                             <Button Background="White" Name="Add_folder" Click="Add_folder_Click">
                                 <StackPanel Orientation="Horizontal" >
                                     <Image Source="Images/Create.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="Add" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
+                                    <TextBlock Text="ADD" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
                                 </StackPanel>
                             </Button>
                             <StackPanel Orientation="Horizontal">
-                                <Button Background="White">
+                                <Button Background="White" Name="PreviewFolders_Button" Click="PreviewFolders_Button_Click">
                                     <StackPanel Orientation="Horizontal" >
-                                        <Image Source="Images/Top.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
+                                        <Image Source="Images/Eye.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="PREVIEW" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
                                     </StackPanel>
                                 </Button>
-                                <Button Background="White">
-                                    <StackPanel Orientation="Horizontal" >
-                                        <Image Source="Images/Up.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                                    </StackPanel>
-                                </Button>
-                                <Button Background="White">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Image Source="Images/Down.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                                    </StackPanel>
-                                </Button>
-                                <Button Background="White">
-                                    <StackPanel Orientation="Horizontal" >
-                                        <Image Source="Images/Bottom.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
-                                    </StackPanel>
-                                </Button>
-
                                 <Button Background="White" Name="StartBatchFolder_Button" Click="StartBatchFolder_Button_Click">
                                     <StackPanel Orientation="Horizontal" >
                                         <Image Source="Images/play_icon.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>

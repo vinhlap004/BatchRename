@@ -19,9 +19,16 @@ namespace BatchRename
     /// </summary>
     public partial class FullNameNormalizeControl : Window
     {
-        public FullNameNormalizeControl()
+       
+        public FullNameNormalizeControl(StringArgs args)
         {
             InitializeComponent();
+        }
+
+        private void Add_FullNameNormalize_Menthod_Button_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+            Close();
         }
     }
 }

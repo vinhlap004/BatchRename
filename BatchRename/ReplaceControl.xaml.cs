@@ -17,11 +17,26 @@ namespace BatchRename
     /// <summary>
     /// Interaction logic for ReplaceControl.xaml
     /// </summary>
+    /// 
+    
     public partial class ReplaceControl : Window
     {
-        public ReplaceControl()
+        ReplaceArgs myArgs;
+        public ReplaceControl(StringArgs args)
         {
             InitializeComponent();
+            myArgs = args as ReplaceArgs;
+            Replace_From_TextBox.Text = "";
+            Replace_To_TextBox.Text = "";
+
+        }
+
+        private void Replace_AddtoList_Button_Click(object sender, RoutedEventArgs e)
+        {
+            myArgs.From = Replace_From_TextBox.Text;
+            myArgs.To = Replace_To_TextBox.Text;
+            DialogResult = true;
+            Close();
         }
     }
 }

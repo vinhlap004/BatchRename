@@ -64,6 +64,7 @@ namespace BatchRename
 
     class ReplaceOperation : StringOperation, INotifyPropertyChanged
     {
+
         public override string Name => "Replace";
 
         public override string Description
@@ -88,9 +89,15 @@ namespace BatchRename
             };
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
         public override void Config()
         {
-            throw new NotImplementedException();
+            var screen = new ReplaceControl(Args);
+            if (screen.ShowDialog() == true)
+            {
+                PropertyChanged?.Invoke(this,
+                    new PropertyChangedEventArgs("Description"));
+            }
         }
 
         public override string Operate(string origin)
@@ -121,9 +128,15 @@ namespace BatchRename
             };
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
         public override void Config()
         {
-            throw new NotImplementedException();
+            var screen = new ReplaceControl(Args);
+            if (screen.ShowDialog() == true)
+            {
+                PropertyChanged?.Invoke(this,
+                    new PropertyChangedEventArgs("Description"));
+            }
         }
 
         public override string Operate(string origin)
@@ -169,6 +182,7 @@ namespace BatchRename
 
         public override string Operate(string origin)
         {
+            
             var args = Args as NewCaseArgs;
             return origin.ToLower();
         }
@@ -235,9 +249,15 @@ namespace BatchRename
             };
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
         public override void Config()
         {
-            throw new NotImplementedException();
+            var screen = new FullNameNormalizeControl(Args);
+            if (screen.ShowDialog() == true)
+            {
+                PropertyChanged?.Invoke(this,
+                    new PropertyChangedEventArgs("Description"));
+            }
         }
 
         public override string Operate(string origin)
@@ -282,7 +302,7 @@ namespace BatchRename
             {
                 var args = Args as MoveArgs;
                 if (args.Before == true)
-                    return $"Move ISBN to before FileName";
+                    return $"Move {args.End} character at position {args.Start} to before FileName";
                 return $"Move ISBN to after FileName";
             }
         }
@@ -301,9 +321,15 @@ namespace BatchRename
             };
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
         public override void Config()
         {
-            throw new NotImplementedException();
+            var screen = new MoveControl(Args);
+            if (screen.ShowDialog() == true)
+            {
+                PropertyChanged?.Invoke(this,
+                    new PropertyChangedEventArgs("Description"));
+            }
         }
 
         public override string Operate(string origin)
@@ -356,9 +382,15 @@ namespace BatchRename
             };
         }
 
+       public event PropertyChangedEventHandler PropertyChanged;
         public override void Config()
         {
-            throw new NotImplementedException();
+            var screen = new UniqueNameControl(Args);
+            if (screen.ShowDialog() == true)
+            {
+                PropertyChanged?.Invoke(this,
+                    new PropertyChangedEventArgs("Description"));
+            }
         }
 
         public override string Operate(string origin)

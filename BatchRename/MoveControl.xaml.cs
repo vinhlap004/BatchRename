@@ -19,9 +19,29 @@ namespace BatchRename
     /// </summary>
     public partial class MoveControl : Window
     {
-        public MoveControl()
+        MoveArgs myargs;
+        public MoveControl(StringArgs args)
         {
             InitializeComponent();
+            myargs = args as MoveArgs;
+            Move_Start_TextBox.Text = myargs.Start.ToString();
+            Move_End_TextBox.Text = myargs.End.ToString();
+        }
+
+        private void Add_MoveMenthod_Button_Click(object sender, RoutedEventArgs e)
+        {
+            myargs.Start = int.Parse(Move_Start_TextBox.Text);
+            myargs.Start = int.Parse(Move_End_TextBox.Text);
+            if(Move_To_After.IsChecked==true)
+            {
+                myargs.Before = false;
+            }
+            else
+            {
+                myargs.Before = true;
+            }
+            DialogResult = true;
+            Close();
         }
     }
 }

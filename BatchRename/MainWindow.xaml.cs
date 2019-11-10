@@ -83,6 +83,7 @@ namespace BatchRename
 
         }
 
+        BindingList<StringOperation> _actions = new BindingList<StringOperation>();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -90,6 +91,7 @@ namespace BatchRename
             FileListView.ItemsSource = _fileNames;
             _fileFolder = new BindingList<FolderName>();
             FolderListView.ItemsSource = _fileFolder;
+            actionsListBox.ItemsSource = _actions;
         }
 
 
@@ -193,102 +195,43 @@ namespace BatchRename
         private void Move_Button_Click(object sender, RoutedEventArgs e)
         {
 
-            ////reset other buttun times click
-            //btnClickTimes.NewCase_Button = 0;
-            //btnClickTimes.Replace_Button = 0;
-            //btnClickTimes.FullNameNormalize_Button = 0;
-            //btnClickTimes.UniqueName_Button = 0;
 
-            //MoveOption moveOption = new MoveOption();
-            //if (btnClickTimes.Move_Button % 2 == 0)
-            //{
-            //    btnClickTimes.Move_Button++;
-            //    OptionContent.Content = moveOption;
-            //}
-            //else
-            //{
-            //    OptionContent.Content = null;
-            //    btnClickTimes.Move_Button++;
-            //}
+            var prototype = new MoveOperation()
+            {
+                Args = new MoveArgs()
+                {
+                    Before = true,
+                    Start = 0,
+                    End = 13
+                }
 
-            MoveControl moveControl = new MoveControl();
-            moveControl.ShowDialog();
+            };
+            var action = prototype;
+            action.Config();
+            _actions.Add(action.Clone());
 
         }
                
 
         private void Replace_Button_Click(object sender, RoutedEventArgs e)
         {
-            ////reset other buttun times click
-            //btnClickTimes.NewCase_Button = 0;
-            //btnClickTimes.Move_Button = 0;
-            //btnClickTimes.FullNameNormalize_Button = 0;
-            //btnClickTimes.UniqueName_Button = 0;
+            var prototype = new ReplaceOperation()
+            {
+                Args = new ReplaceArgs()
+                {
+                    From = "From",
+                    To = "To"
+                }
+            };
+            var action = prototype;
+            action.Config();
+            _actions.Add(action.Clone());
 
-
-            //if (btnClickTimes.Replace_Button % 2 == 0)
-            //{
-            //    btnClickTimes.Replace_Button++;
-
-
-            //    var prototype1 = new ReplaceOperation()
-            //    {
-            //        Args = new ReplaceArgs()
-            //        {
-            //            From = "From",
-            //            To = "To"
-            //        }
-            //    };
-
-            //    var action = prototype1 as StringOperation;
-            //    _actions.Add(action.Clone());
-
-
-            //    ReplaceOption rOption = new ReplaceOption();
-            //    OptionContent.Content = rOption;
-
-            //}
-            //else
-            //{
-            //    OptionContent.Content = null;
-            //    btnClickTimes.Replace_Button++;
-            //}
-            ReplaceControl replaceControl = new ReplaceControl();
-            replaceControl.ShowDialog();
-
-            //ReplaceOption rOption = new ReplaceOption();
-          
-            //if (btnClickTimes.Replace_Button % 2 == 0)
-            //{
-            //    btnClickTimes.Replace_Button++;
-            //    OptionContent.Content = rOption;
-            //}
-            //else
-            //{
-            //    OptionContent.Content = null;
-            //    btnClickTimes.Replace_Button++;
-            //}
         }
 
         private void NewCase_Button_Click(object sender, RoutedEventArgs e)
         {
-            ////reset other buttun times click
-            //btnClickTimes.Move_Button = 0;
-            //btnClickTimes.Replace_Button = 0;
-            //btnClickTimes.FullNameNormalize_Button = 0;
-            //btnClickTimes.UniqueName_Button = 0;
-
-            //NewCaseOption nOption = new NewCaseOption();
-            //if (btnClickTimes.NewCase_Button % 2 == 0)
-            //{
-            //    btnClickTimes.NewCase_Button++;
-            //    OptionContent.Content = nOption;
-            //}
-            //else
-            //{
-            //    OptionContent.Content = null;
-            //    btnClickTimes.NewCase_Button++;
-            //}
+            
 
             NewCaseControl newCaseControl = new NewCaseControl();
             newCaseControl.ShowDialog();
@@ -296,48 +239,41 @@ namespace BatchRename
 
         private void FullNameNormalize_Button_Click(object sender, RoutedEventArgs e)
         {
-            ////reset other buttun times click
-            //btnClickTimes.NewCase_Button = 0;
-            //btnClickTimes.Move_Button = 0;
-            //btnClickTimes.Replace_Button = 0;
-            //btnClickTimes.UniqueName_Button = 0;
+            var prototype = new FullnameNormalizeOperation()
+            {
+                Args = new FullnameNormalizeArg()
+                {
 
-            //FullNameNormalizeOption fOption = new FullNameNormalizeOption();
-            //if (btnClickTimes.FullNameNormalize_Button % 2 == 0)
-            //{
-            //    btnClickTimes.FullNameNormalize_Button++;
-            //    OptionContent.Content = fOption;
-            //}
-            //else
-            //{
-            //    OptionContent.Content = null;
-            //    btnClickTimes.FullNameNormalize_Button++;
-            //}
-            FullNameNormalizeControl fullNameNormalize = new FullNameNormalizeControl();
-            fullNameNormalize.ShowDialog();
+                }
+            };
+            var action = prototype;
+            action.Config();
+            _actions.Add(action.Clone());
         }
 
         private void UniqueName_Button_Click(object sender, RoutedEventArgs e)
         {
-            ////reset other buttun times click
-            //btnClickTimes.NewCase_Button = 0;
-            //btnClickTimes.Move_Button = 0;
-            //btnClickTimes.Replace_Button = 0;
-            //btnClickTimes.FullNameNormalize_Button = 0;
 
-            //UniqueNameOption uOption = new UniqueNameOption();
-            //if (btnClickTimes.UniqueName_Button % 2 == 0)
-            //{
-            //    btnClickTimes.UniqueName_Button++;
-            //    OptionContent.Content = uOption;
-            //}
-            //else
-            //{
-            //    OptionContent.Content = null;
-            //    btnClickTimes.UniqueName_Button++;
-            //}
-            UniqueNameControl uniqueName = new UniqueNameControl();
-            uniqueName.ShowDialog();
+            var prototype = new UniqueNameOperation()
+            {
+                Args = new UniqueNameArgs()
+                {
+
+                }
+            };
+            var action = prototype;
+            action.Config();
+            _actions.Add(action.Clone());
+        }
+
+        private void PreviewFolders_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PreviewFiles_Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 

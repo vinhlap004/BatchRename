@@ -20,8 +20,12 @@
                     <TextBlock Text="End" Margin="5"/>
                     <TextBox Name="Move_End_TextBox"  Margin="10 5 5 5" />
                 </DockPanel>
-                <CheckBox Name="Move_toAfter" Content="Move to after" Margin="5 5 5 20"/>
-                <Button Name="Add_MoveMenthod_Button" Content="Add to list" Width="80" Height="25"/>
+                <StackPanel Margin="10 10 10  10" Orientation="Horizontal">
+                    <RadioButton Name="Move_To_After" Content="Move to after" GroupName="Move" Margin="5" IsChecked="True"></RadioButton>
+                    <RadioButton Name="Move_To_Before" Content="Move to before" GroupName="Move"  Margin="5"></RadioButton>
+                </StackPanel>
+           
+                <Button Name="Add_MoveMenthod_Button" Click="Add_MoveMenthod_Button_Click" Content="Add to list" Width="80" Height="25"/>
 
             </DockPanel>
         </DockPanel>
