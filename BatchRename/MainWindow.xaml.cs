@@ -304,12 +304,21 @@ namespace BatchRename
             _actions.Add(action.Clone());
         }
 
-        private void PreviewFolders_Button_Click(object sender, RoutedEventArgs e)
+        private void MenuItem_Edit_Click(object sender, RoutedEventArgs e)
         {
+            var item = actionsListBox.SelectedItem as
+                StringOperation;
 
+            item.Config();
         }
 
-        private void PreviewFiles_Button_Click(object sender, RoutedEventArgs e)
+        private void MenuItem_Delete_Click(object sender, RoutedEventArgs e)
+        {
+            var index = actionsListBox.SelectedIndex;
+            _actions.RemoveAt(index);
+        }
+
+        private void Save_ListAction_Button_Click(object sender, RoutedEventArgs e)
         {
 
         }
