@@ -180,12 +180,37 @@ namespace BatchRename
                     }
                 }
                 FileListView.ItemsSource = _fileNames;
+                System.Windows.Forms.MessageBox.Show("Change Name success!");
             }
         }
 
         private void StartBatchFolder_Button_Click(object sender, RoutedEventArgs e)
         {
+            if (_fileFolder != null)
+            {
+                List<FolderName> prefoldername = new List<FolderName>();
+                foreach (var folder in _fileFolder)
+                {
+                    var folder_name = folder.nameFolder;
 
+                    var FolderName = new FolderName();
+                    foreach (var action in _actions)
+                    {
+                        var newname = action.Operate(folder_name);
+                        Guid g = Guid.NewGuid();
+                        string guidstring = g.ToString();
+                        string temp = folder.pathFolder + guidstring;
+                        Directory.Move(folder.pathFolder + folder.nameFolder, temp);
+                        Directory.Move(temp, folder.pathFolder+newname);
+                        FolderName.nameFolder = folder_name;
+                        FolderName.newFolderName = newname;
+                        FolderName.pathFolder = folder.pathFolder;
+                    }
+                    prefoldername.Add(FolderName);
+                }
+                FolderListView.ItemsSource = prefoldername;
+                System.Windows.Forms.MessageBox.Show("Change Name success!");
+            }
         }
 
         private void PreviewFolders_Button_Click(object sender, RoutedEventArgs e)
