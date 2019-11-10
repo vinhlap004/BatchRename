@@ -48,16 +48,11 @@
             </StackPanel>
         </StackPanel>
 
-        <Grid Grid.Row="1" Background="#FAFAFA" Height="393" VerticalAlignment="Bottom">
+       
 
-            <StackPanel Grid.Row="1" Margin="0 5 0 0">
+            <DockPanel Grid.Column="0" Grid.Row="1">
 
-
-                <DockPanel>
-
-
-                    <TabControl>
-
+                <TabControl>
 
                         <TabItem Header="String operation">
                             <DockPanel>
@@ -123,8 +118,8 @@
 
 
                         <TabItem Header="List action">
-
-                            <ListBox Name="actionsListBox" Height="165">
+                    <DockPanel>
+                            <ListBox Name="actionsListBox">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel >
@@ -140,17 +135,14 @@
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
-
-                        </TabItem>
+                    </DockPanel>
+                </TabItem>
+                            
                     </TabControl>
                 </DockPanel>
                 <!--end test code-->
 
-
-
-            </StackPanel>
-
-        </Grid>
+  
 
         <DockPanel Grid.Column="1" Grid.Row="1" Background="#FAFAFF">
             <TabControl>

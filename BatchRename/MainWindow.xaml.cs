@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace BatchRename
 {
@@ -161,30 +162,61 @@ namespace BatchRename
 
         private void StartBatchFile_Button_Click(object sender, RoutedEventArgs e)
         {
-            // vd thêm số 1 vào tên file
-            //if (_fileNames != null)
-            //{
+            //vd thêm số 1 vào tên file
+            if (_fileNames != null)
+            {
 
-            //    foreach (var file in _fileNames)
-            //    {
-            //        string file_name, file_extension;
+                foreach (var file in _fileNames)
+                {
+                    string file_name, file_extension;
 
-            //        file_name = Path.GetFileNameWithoutExtension(file.pathFile + file.nameFile); //lấy tên file không bao gồm phần đuôi kiểu file
-            //        file_extension = Path.GetExtension(file.pathFile + file.nameFile); //lấy phần đuôi của file vd: .pdf,.png
-
-            //        File.Move(file.pathFile + file.nameFile, file.pathFile + file_name + "1" + file_extension); //đổi tên file đó thành tên file mới đã được mã hóa
-
-            //        file.newFileName = file_name + "1" + file_extension;
-            //        file.nameFile = file_name + "1" + file_extension;
-            //        FileListView.ItemsSource = _fileNames;
-            //    }
-
-            //}
+                    file_name = Path.GetFileNameWithoutExtension(file.pathFile + file.nameFile); //lấy tên file không bao gồm phần đuôi kiểu file
+                    file_extension = Path.GetExtension(file.pathFile + file.nameFile); //lấy phần đuôi của file vd: .pdf,.png
+                    foreach (var action in _actions)
+                    {
+                        File.Move(file.pathFile + file.nameFile, file.pathFile + action.Operate(file_name) + file_extension); //đổi tên file đó thành tên file mới đã được mã hóa
+                        file.newFileName = action.Operate(file_name) + file_extension;
+                        file.nameFile = file_name + file_extension;
+                    }
+                }
+                FileListView.ItemsSource = _fileNames;
+            }
         }
 
         private void StartBatchFolder_Button_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void PreviewFolders_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PreviewFiles_Button_Click(object sender, RoutedEventArgs e)
+        {
+            //vd thêm số 1 vào tên file
+            if (_fileNames != null)
+            {
+                List<FileName> prefilename = new List<FileName>();
+                foreach (var file in _fileNames)
+                {
+                    string file_name, file_extension;
+
+                    file_name = Path.GetFileNameWithoutExtension(file.pathFile + file.nameFile); //lấy tên file không bao gồm phần đuôi kiểu file
+                    file_extension = Path.GetExtension(file.pathFile + file.nameFile); //lấy phần đuôi của file vd: .pdf,.png
+                    FileName fileName = new FileName();
+                    foreach (var action in _actions)
+                    { 
+                        fileName.nameFile = file_name + file_extension;
+                        fileName.newFileName = action.Operate(file_name) + file_extension;
+                        fileName.pathFile = file.pathFile;
+                    }
+                    prefilename.Add(fileName);
+
+                }
+                FileListView.ItemsSource = prefilename;
+            }
         }
 
 
