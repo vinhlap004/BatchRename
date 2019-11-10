@@ -35,6 +35,14 @@ namespace BatchRename
         {
             myArgs.From = Replace_From_TextBox.Text;
             myArgs.To = Replace_To_TextBox.Text;
+            if (Name.IsChecked == true)
+            {
+                myArgs.ReplaceName = true;
+            }
+            else
+            {
+                myArgs.ReplaceName = false;
+            }
             DialogResult = true;
             Close();
         }

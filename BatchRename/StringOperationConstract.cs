@@ -9,13 +9,15 @@ namespace BatchRename
 {
     public class StringArgs
     {
-
+       
     }
 
     public class ReplaceArgs : StringArgs, INotifyPropertyChanged
     {
         public string From { get; set; }
         public string To { get; set; }
+
+        public bool ReplaceName { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
     }
@@ -54,13 +56,13 @@ namespace BatchRename
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public abstract string Name { get; }
+        public abstract string Name { get;}
         public abstract string Description { get; }
 
         public abstract StringOperation Clone();
 
         public abstract void Config();
-        public abstract string Operate(string origin);
+        public abstract string Operate(string origin,string extension);
     }
 
     class ReplaceOperation : StringOperation, INotifyPropertyChanged
@@ -73,7 +75,14 @@ namespace BatchRename
             get
             {
                 var args = Args as ReplaceArgs;
-                return $"Replace from {args.From} to {args.To}";
+                if(args.ReplaceName== true)
+                { 
+                return $"Replace Name from {args.From} to {args.To}";
+                }
+                else
+                {
+                    return $"Replace Extension from {args.From} to {args.To}";
+                }
             }
         }
 
@@ -85,7 +94,8 @@ namespace BatchRename
                 Args = new ReplaceArgs()
                 {
                     From = oldArgs.From,
-                    To = oldArgs.To
+                    To = oldArgs.To,
+                    ReplaceName = oldArgs.ReplaceName
                 }
             };
         }
@@ -101,13 +111,23 @@ namespace BatchRename
             }
         }
 
-        public override string Operate(string origin)
+        public override string Operate(string origin, string extension)
         {
             var args = Args as ReplaceArgs;
             var from = args.From;
             var to = args.To;
-
-            return origin.Replace(from, to);
+            if(extension==null)
+            {
+                return origin.Replace(from, to) + extension;
+            }
+            else
+            {
+                if (args.ReplaceName == false)
+                {
+                    return origin + extension.Replace(from, to);
+                }
+                return origin.Replace(from, to) + extension;
+            }
         }
     }
 
@@ -158,7 +178,7 @@ namespace BatchRename
             }
         }
 
-        public override string Operate(string origin)
+        public override string Operate(string origin, string extension)
         {
             var args = Args as NewCaseArgs;
 
@@ -194,7 +214,7 @@ namespace BatchRename
                 }
             }
             
-            return result;
+            return result +extension;
         }
     }
 
@@ -313,7 +333,7 @@ namespace BatchRename
             }
         }
 
-        public override string Operate(string origin)
+        public override string Operate(string origin, string extension)
         {
 
             var args = Args as FullnameNormalizeArg;
@@ -337,7 +357,7 @@ namespace BatchRename
                 result += fistCharacter + otherCharacter + " ";
             }
 
-            return result;
+            return result + extension;
         }
     }
 
@@ -355,8 +375,8 @@ namespace BatchRename
             {
                 var args = Args as MoveArgs;
                 if (args.Before == true)
-                    return $"Move {args.End} character at position {args.Start} to before FileName";
-                return $"Move ISBN to after FileName";
+                    return $"Move {args.End- args.Start} character at position {args.Start} -> {args.End} to before FileName";
+                return $"Move {args.End - args.Start} character at position {args.Start} -> {args.End} to after FileName";
             }
         }
 
@@ -385,7 +405,7 @@ namespace BatchRename
             }
         }
 
-        public override string Operate(string origin)
+        public override string Operate(string origin, string extension)
         {
             var args = Args as MoveArgs;
 
@@ -393,7 +413,7 @@ namespace BatchRename
             var start = args.Start;
             var end = args.End;
             var before = args.Before;
-            if (input.Length < 13)
+            if (input.Length <= end-start)
                 return input;
             string firstString = input.Substring(start, end).Trim();
             string secondString = input.Substring(end).Trim();
@@ -408,7 +428,7 @@ namespace BatchRename
                 result += secondString + " " + firstString;
             }
 
-            return result;
+            return result + extension;
         }
     }
 
@@ -447,13 +467,13 @@ namespace BatchRename
             }
         }
 
-        public override string Operate(string origin)
+        public override string Operate(string origin, string extension)
         {
             string result = "";
             Guid id;
             id = Guid.NewGuid();
             result += id;
-            return result;
+            return result + extension;
         }
     }
 

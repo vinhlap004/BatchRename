@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.IO.Abstractions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -166,21 +165,32 @@ namespace BatchRename
             //vd thêm số 1 vào tên file
             if (_fileNames != null)
             {
-
+                List<FileName> prefilename = new List<FileName>();
                 foreach (var file in _fileNames)
                 {
                     string file_name, file_extension;
-
+                    FileName fileName = new FileName();
                     file_name = Path.GetFileNameWithoutExtension(file.pathFile + file.nameFile); //lấy tên file không bao gồm phần đuôi kiểu file
                     file_extension = Path.GetExtension(file.pathFile + file.nameFile); //lấy phần đuôi của file vd: .pdf,.png
                     foreach (var action in _actions)
                     {
-                        File.Move(file.pathFile + file.nameFile, file.pathFile + action.Operate(file_name) + file_extension); //đổi tên file đó thành tên file mới đã được mã hóa
-                        file.newFileName = action.Operate(file_name) + file_extension;
-                        file.nameFile = file_name + file_extension;
+                        File.Move(file.pathFile + file.nameFile, file.pathFile + action.Operate(file_name, file_extension)); //đổi tên file đó thành tên file mới đã được mã hóa
+                        fileName.nameFile = action.Operate(file_name, file_extension);
+                        fileName.pathFile = file.pathFile;
+                        file.nameFile = action.Operate(file_name, file_extension);
                     }
+                    prefilename.Add(fileName);
+             
                 }
+
+                _fileNames.Clear();
+                foreach (var item in prefilename)
+                {
+                    _fileNames.Add(item);
+                }
+
                 FileListView.ItemsSource = _fileNames;
+
                 System.Windows.Forms.MessageBox.Show("Change Name success!");
             }
         }
@@ -197,38 +207,47 @@ namespace BatchRename
                     var FolderName = new FolderName();
                     foreach (var action in _actions)
                     {
-                        var newname = action.Operate(folder_name);
+                        var newname = action.Operate(folder_name, null);
                         Guid g = Guid.NewGuid();
                         string guidstring = g.ToString();
                         string temp = folder.pathFolder + guidstring;
                         Directory.Move(folder.pathFolder + folder.nameFolder, temp);
-                        Directory.Move(temp, folder.pathFolder+newname);
-                        FolderName.nameFolder = folder_name;
-                        FolderName.newFolderName = newname;
+                        Directory.Move(temp, folder.pathFolder + newname);
+                        FolderName.nameFolder = newname;
                         FolderName.pathFolder = folder.pathFolder;
+                        folder_name = newname;
+                        folder.nameFolder = newname;
                     }
                     prefoldername.Add(FolderName);
                 }
-                FolderListView.ItemsSource = prefoldername;
+                _fileFolder.Clear();
+                foreach (var item in prefoldername)
+                {
+                    _fileFolder.Add(item);
+                }
+
+                FolderListView.ItemsSource = _fileFolder;
+             
                 System.Windows.Forms.MessageBox.Show("Change Name success!");
             }
         }
 
         private void PreviewFolders_Button_Click(object sender, RoutedEventArgs e)
         {
-            if(_fileFolder !=null)
+            if (_fileFolder != null)
             {
                 List<FolderName> prefoldername = new List<FolderName>();
-                foreach(var folder in _fileFolder)
+                foreach (var folder in _fileFolder)
                 {
                     var folder_name = folder.nameFolder;
 
                     var FolderName = new FolderName();
-                    foreach(var action in _actions)
+                    foreach (var action in _actions)
                     {
                         FolderName.nameFolder = folder_name;
-                        FolderName.newFolderName = action.Operate(folder_name);
+                        FolderName.newFolderName = action.Operate(folder_name, null);
                         FolderName.pathFolder = folder.pathFolder;
+                        folder_name = action.Operate(folder_name, null);
                     }
                     prefoldername.Add(FolderName);
                 }
@@ -248,23 +267,19 @@ namespace BatchRename
                     file_name = Path.GetFileNameWithoutExtension(file.pathFile + file.nameFile); //lấy tên file không bao gồm phần đuôi kiểu file
                     file_extension = Path.GetExtension(file.pathFile + file.nameFile); //lấy phần đuôi của file vd: .pdf,.png
                     FileName fileName = new FileName();
+                    
                     foreach (var action in _actions)
-                    { 
+                    {
                         fileName.nameFile = file_name + file_extension;
-                        fileName.newFileName = action.Operate(file_name) + file_extension;
+                        fileName.newFileName = action.Operate(file_name, file_extension);
                         fileName.pathFile = file.pathFile;
                     }
                     prefilename.Add(fileName);
-
                 }
                 FileListView.ItemsSource = prefilename;
             }
 
-
-
         }
-
-
 
         private void Move_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -285,7 +300,7 @@ namespace BatchRename
             _actions.Add(action.Clone());
 
         }
-               
+
 
         private void Replace_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -294,7 +309,8 @@ namespace BatchRename
                 Args = new ReplaceArgs()
                 {
                     From = "From",
-                    To = "To"
+                    To = "To",
+                    ReplaceName = true
                 }
             };
             var action = prototype;
@@ -360,10 +376,191 @@ namespace BatchRename
             _actions.RemoveAt(index);
         }
 
+
+        string Replace = "BatchRename.ReplaceArgs";
+        string Move = "BatchRename.MoveArgs";
+        string Newcase = "BatchRename.NewCaseArgs";
+        string Unique = "BatchRename.UniqueNameArgs";
+        string Normalize = "BatchRename.FullnameNormalizeArg";
         private void Save_ListAction_Button_Click(object sender, RoutedEventArgs e)
         {
+            // save file dialog
+            System.Windows.Forms.SaveFileDialog saveFileDialog = new System.Windows.Forms.SaveFileDialog()
+            {
+                Title = "Save text Files",
+                CheckPathExists = true,
+                DefaultExt = "txt",
+                Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*",
+                FilterIndex = 2,
+                RestoreDirectory = true,
+            };
 
-           
+            // get filename
+            string filename = "";
+            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                filename = saveFileDialog.FileName;
+            }
+
+            var writer = new StreamWriter(filename);
+            // Dong dau tien la luot di hien tai
+
+            foreach (var item in _actions)
+            {
+                string mySaveArgs = "";
+                string args = item.Args.ToString();
+
+                //args.CompareTo(Replace) == 1
+                if (args == Replace)
+                {
+                    ReplaceArgs saveargs = item.Args as ReplaceArgs;
+                    mySaveArgs = Replace + " " + saveargs.From + " " + saveargs.To + " " + saveargs.ReplaceName.ToString();
+                    writer.WriteLine(mySaveArgs);
+
+                }
+                if (args == Move)
+                {
+                    MoveArgs saveargs = item.Args as MoveArgs;
+                    mySaveArgs = Move + " " + saveargs.Start + " " + saveargs.End + " " + saveargs.Before.ToString();
+                    writer.WriteLine(mySaveArgs);
+                }
+                if (args == Newcase)
+                {
+                    NewCaseArgs saveargs = item.Args as NewCaseArgs;
+                    mySaveArgs = Newcase + " " + saveargs.optionNewCase.ToString();
+                    writer.WriteLine(mySaveArgs);
+                }
+                if (args == Unique)
+                {
+                    UniqueNameArgs saveargs = item.Args as UniqueNameArgs;
+                    mySaveArgs = Unique;
+                    writer.WriteLine(mySaveArgs);
+                }
+                if (args == Normalize)
+                {
+                    FullnameNormalizeArg saveargs = item.Args as FullnameNormalizeArg;
+                    mySaveArgs = Normalize;
+                    writer.WriteLine(mySaveArgs);
+                }
+            }
+            writer.Close();
+
+        }
+        private void LoadFromFile_Button_Click(object sender, RoutedEventArgs e)
+        {
+            string line = "";
+            _actions.Clear();
+            OpenFileDialog openFile = new OpenFileDialog();
+            if (openFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                var reader = new StreamReader(openFile.FileName);
+                line = reader.ReadLine();
+                while (line != null)
+                {
+                    var tokens = line.Split(new string[] { " " }, StringSplitOptions.None);
+                    {
+                        if (tokens[0] == "BatchRename.ReplaceArgs")
+                        {
+                            bool temp = false;
+                            if(tokens[3]== "true")
+                            {
+                                temp = true;
+                            }
+                            var prototype = new ReplaceOperation()
+                            {
+                                Args = new ReplaceArgs
+                                {
+                                    From = tokens[1],
+                                    To = tokens[2],
+                                    ReplaceName = temp
+                                    
+                                }
+                            };
+                            var action = prototype;
+                            _actions.Add(action.Clone());
+                        }
+                        else
+                        {
+                            if (tokens[0] == "BatchRename.MoveArgs")
+                            {
+                                bool temp;
+                                if (tokens[3] == "true")
+                                {
+                                    temp = true;
+                                }
+                                else
+                                {
+                                    temp = false;
+                                }
+                                var prototype = new MoveOperation()
+                                {
+                                    Args = new MoveArgs
+                                    {
+                                        Start = int.Parse(tokens[1]),
+                                        End = int.Parse(tokens[2]),
+                                        Before = temp
+                                    }
+                                };
+                                var action = prototype;
+                                _actions.Add(action.Clone());
+                            }
+                            else
+                            {
+                                if (tokens[0] == "BatchRename.NewCaseArgs")
+                                {
+                                    var prototype = new NewCaseOperation()
+                                    {
+                                        Args = new NewCaseArgs
+                                        {
+                                            optionNewCase = int.Parse(tokens[1])
+                                        }
+                                    };
+                                    var action = prototype;
+                                    _actions.Add(action.Clone());
+                                }
+                                else
+                                {
+                                    if (tokens[0] == "BatchRename.UniqueNameArgs")
+                                    {
+                                        var prototype = new UniqueNameOperation()
+                                        {
+                                            Args = new UniqueNameArgs
+                                            {
+
+                                            }
+                                        };
+                                        var action = prototype;
+                                        _actions.Add(action.Clone());
+
+                                    }
+                                    else
+                                    {
+                                        if (tokens[0] == "BatchRename.FullnameNormalizeArg")
+                                        {
+                                            var prototype = new FullnameNormalizeOperation()
+                                            {
+                                                Args = new FullnameNormalizeArg
+                                                {
+
+                                                }
+                                            };
+                                            var action = prototype;
+                                            _actions.Add(action.Clone());
+                                        }
+                                        else
+                                        {
+                                            System.Windows.Forms.MessageBox.Show("Khong hop le!!!");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    line = reader.ReadLine();
+
+                }
+
+            }
         }
 
         private void Refresh_Button_Click(object sender, RoutedEventArgs e)
@@ -371,6 +568,8 @@ namespace BatchRename
             _actions.Clear();
             _fileFolder.Clear();
             _fileNames.Clear();
+            FileListView.ItemsSource = _fileNames;
+            FolderListView.ItemsSource = _fileFolder;
         }
     }
 
