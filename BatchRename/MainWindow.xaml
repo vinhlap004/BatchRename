@@ -37,11 +37,13 @@
                 <Button Background="White" Name="LoadFromFile_Button" Click="LoadFromFile_Button_Click">
                     <StackPanel Orientation="Horizontal" >
                         <Image Source="Images/Load.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Import"/>
                     </StackPanel>
                 </Button>
                 <Button Background="White" Name="Save_ListAction_Button" Click="Save_ListAction_Button_Click">
                     <StackPanel Orientation="Horizontal" >
                         <Image Source="Images/Save.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                        <TextBlock Text=" Save"/>
                     </StackPanel>
                 </Button>
 

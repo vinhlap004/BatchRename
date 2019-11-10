@@ -174,10 +174,11 @@ namespace BatchRename
                     file_extension = Path.GetExtension(file.pathFile + file.nameFile); //lấy phần đuôi của file vd: .pdf,.png
                     foreach (var action in _actions)
                     {
-                        File.Move(file.pathFile + file.nameFile, file.pathFile + action.Operate(file_name, file_extension)); //đổi tên file đó thành tên file mới đã được mã hóa
-                        fileName.nameFile = action.Operate(file_name, file_extension);
-                        fileName.pathFile = file.pathFile;
-                        file.nameFile = action.Operate(file_name, file_extension);
+                        var newname = action.Operate(file_name, file_extension);
+                        File.Move(file.pathFile + file_name+file_extension, file.pathFile + newname); //đổi tên file đó thành tên file mới đã được mã hóa
+                        file_extension = Path.GetExtension(file.pathFile + newname);
+                        file_name = Path.GetFileNameWithoutExtension(file.pathFile + newname);
+                        fileName.nameFile = newname;
                     }
                     prefilename.Add(fileName);
              
@@ -263,20 +264,25 @@ namespace BatchRename
                 foreach (var file in _fileNames)
                 {
                     string file_name, file_extension;
-
+                    FileName fileName = new FileName();
                     file_name = Path.GetFileNameWithoutExtension(file.pathFile + file.nameFile); //lấy tên file không bao gồm phần đuôi kiểu file
                     file_extension = Path.GetExtension(file.pathFile + file.nameFile); //lấy phần đuôi của file vd: .pdf,.png
-                    FileName fileName = new FileName();
-                    
                     foreach (var action in _actions)
                     {
-                        fileName.nameFile = file_name + file_extension;
-                        fileName.newFileName = action.Operate(file_name, file_extension);
+                        var newname = action.Operate(file_name, file_extension);
+                        fileName.nameFile = file_name;
+                        file_extension = Path.GetExtension(file.pathFile + newname);
+                        file_name = Path.GetFileNameWithoutExtension(file.pathFile + newname);
+                        fileName.newFileName = newname;
                         fileName.pathFile = file.pathFile;
                     }
                     prefilename.Add(fileName);
+
                 }
+
+               
                 FileListView.ItemsSource = prefilename;
+
             }
 
         }
