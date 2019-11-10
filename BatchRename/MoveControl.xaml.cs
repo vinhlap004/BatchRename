@@ -31,7 +31,7 @@ namespace BatchRename
         private void Add_MoveMenthod_Button_Click(object sender, RoutedEventArgs e)
         {
             myargs.Start = int.Parse(Move_Start_TextBox.Text);
-            myargs.Start = int.Parse(Move_End_TextBox.Text);
+            myargs.End = int.Parse(Move_End_TextBox.Text);
             if(Move_To_After.IsChecked==true)
             {
                 myargs.Before = false;

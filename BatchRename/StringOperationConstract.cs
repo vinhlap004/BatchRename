@@ -22,6 +22,7 @@ namespace BatchRename
 
     public class NewCaseArgs : StringArgs, INotifyPropertyChanged
     {
+        public int optionNewCase { get; set; } // =1: UPPER ; =2: lower; =3: Name normalize
         public event PropertyChangedEventHandler PropertyChanged;
     }
 
@@ -114,7 +115,25 @@ namespace BatchRename
     {
         public override string Name => "New Case";
 
-        public override string Description => throw new NotImplementedException();
+        public override string Description
+        {
+            get
+            {
+                var args = Args as NewCaseArgs;
+                if (args.optionNewCase == 1)
+                {
+                    return $"Make name UPPER CASE";
+                }
+                else
+                {
+                    if(args.optionNewCase ==2)
+                    {
+                        return $"Make name lower case";
+                    }
+                }
+                return $"Make name Name normalize";
+            }
+        }
 
         public override StringOperation Clone()
         {
@@ -123,7 +142,7 @@ namespace BatchRename
             {
                 Args = new NewCaseArgs()
                 {
-
+                    optionNewCase = oldArgs.optionNewCase
                 }
             };
         }
@@ -131,7 +150,7 @@ namespace BatchRename
         public event PropertyChangedEventHandler PropertyChanged;
         public override void Config()
         {
-            var screen = new ReplaceControl(Args);
+            var screen = new NewCaseControl(Args);
             if (screen.ShowDialog() == true)
             {
                 PropertyChanged?.Invoke(this,
@@ -141,88 +160,122 @@ namespace BatchRename
 
         public override string Operate(string origin)
         {
-            return origin;
-        }
-    }
-
-    class StringUpperOperation : NewCaseOperation
-    {
-        public override string Name => "String Upper";
-
-        public override string Description
-        {
-            get
-            {
-                var args = Args as NewCaseArgs;
-                return $"Upper";
-            }
-        }
-
-
-        public override string Operate(string origin)
-        {
             var args = Args as NewCaseArgs;
-            return origin.ToUpper();
-        }
-    }
 
-    class StringLowerOperation : NewCaseOperation
-    {
-        public override string Name => "String Lower";
+            var optionNewCase = args.optionNewCase;
 
-        public override string Description
-        {
-            get
+            var result = "";
+
+            if(optionNewCase == 1)
             {
-                var args = Args as NewCaseArgs;
-                return $"Lower";
+                result= origin.ToUpper();
             }
-        }
-
-
-        public override string Operate(string origin)
-        {
-            
-            var args = Args as NewCaseArgs;
-            return origin.ToLower();
-        }
-    }
-
-
-    class StringNormalizeNewCaseOperation : NewCaseOperation
-    {
-        public override string Name => "Normalize";
-
-        public override string Description
-        {
-            get
+            else
             {
-                var args = Args as NewCaseArgs;
-                return $"Normalize";
-            }
-        }
-
-        public override string Operate(string origin)
-        {
-            var args = Args as NewCaseArgs;
-            string result = "";
-            result = origin.ToLower();
-
-            char[] letters = result.ToCharArray();
-
-            letters[0] = char.ToUpper(letters[0]);
-            for (int i = 0; i < letters.Length - 1; i++)
-            {
-                if (letters[i] == ' ' && letters[i + 1] != ' ')
+                if(optionNewCase ==2)
                 {
-                    letters[i + 1] = char.ToUpper(letters[i + 1]);
+                    result = origin.ToLower();
+                }
+                else
+                {
+                    result = origin.ToLower();
+                    char[] letters = result.ToCharArray();
+
+                    letters[0] = char.ToUpper(letters[0]);
+                    for (int i = 0; i < letters.Length - 1; i++)
+                    {
+                        if (letters[i] == ' ' && letters[i + 1] != ' ')
+                        {
+                            letters[i + 1] = char.ToUpper(letters[i + 1]);
+                        }
+                    }
+
+                    result = new string(letters);
                 }
             }
-
-            result = new string(letters);
+            
             return result;
         }
     }
+
+    //class StringUpperOperation : NewCaseOperation
+    //{
+    //    public override string Name => "String Upper";
+
+    //    public override string Description
+    //    {
+    //        get
+    //        {
+    //            var args = Args as NewCaseArgs;
+    //            return $"Upper";
+    //        }
+    //    }
+
+
+    //    public override string Operate(string origin)
+    //    {
+    //        var args = Args as NewCaseArgs;
+    //        return origin.ToUpper();
+    //    }
+    //}
+
+    //class StringLowerOperation : NewCaseOperation
+    //{
+    //    public override string Name => "String Lower";
+
+    //    public override string Description
+    //    {
+    //        get
+    //        {
+    //            var args = Args as NewCaseArgs;
+    //            return $"Lower";
+    //        }
+    //    }
+
+
+    //    public override string Operate(string origin)
+    //    {
+            
+    //        var args = Args as NewCaseArgs;
+    //        return origin.ToLower();
+    //    }
+    //}
+
+
+    //class StringNormalizeNewCaseOperation : NewCaseOperation
+    //{
+    //    public override string Name => "Normalize";
+
+    //    public override string Description
+    //    {
+    //        get
+    //        {
+    //            var args = Args as NewCaseArgs;
+    //            return $"Normalize";
+    //        }
+    //    }
+
+    //    public override string Operate(string origin)
+    //    {
+    //        var args = Args as NewCaseArgs;
+    //        string result = "";
+    //        result = origin.ToLower();
+
+    //        char[] letters = result.ToCharArray();
+
+    //        letters[0] = char.ToUpper(letters[0]);
+    //        for (int i = 0; i < letters.Length - 1; i++)
+    //        {
+    //            if (letters[i] == ' ' && letters[i + 1] != ' ')
+    //            {
+    //                letters[i + 1] = char.ToUpper(letters[i + 1]);
+    //            }
+    //        }
+
+    //        result = new string(letters);
+    //        return result;
+    //    }
+    //}
 
     class FullnameNormalizeOperation : StringOperation
     {

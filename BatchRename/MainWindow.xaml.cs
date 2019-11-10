@@ -231,10 +231,16 @@ namespace BatchRename
 
         private void NewCase_Button_Click(object sender, RoutedEventArgs e)
         {
-            
-
-            NewCaseControl newCaseControl = new NewCaseControl();
-            newCaseControl.ShowDialog();
+            var prototype = new NewCaseOperation()
+            {
+                Args = new NewCaseArgs()
+                {
+                    optionNewCase = 1
+                }
+            };
+            var action = prototype;
+            action.Config();
+            _actions.Add(action.Clone());
         }
 
         private void FullNameNormalize_Button_Click(object sender, RoutedEventArgs e)
@@ -272,16 +278,6 @@ namespace BatchRename
         }
 
         private void PreviewFiles_Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void PreviewFiles_Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void PreviewFolders_Button_Click(object sender, RoutedEventArgs e)
         {
 
         }

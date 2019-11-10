@@ -8,10 +8,10 @@
         Title="NewCaseControl" Height="200" Width="500">
     <Grid>
         <StackPanel Margin="10 10 10  10">
-            <RadioButton Content="UPPERCASE" GroupName="newCase" Margin="5" IsChecked="True"></RadioButton>
-            <RadioButton Content="lowercase" GroupName="newCase"  Margin="5"></RadioButton>
-            <RadioButton Content="Name normalize" GroupName="newCase" Margin="5"></RadioButton>
-            <Button Content="Add to list" Width="80" Height="25"></Button>
+            <RadioButton Name="upper_case" Content="UPPERCASE" GroupName="newCase" Margin="5" IsChecked="True"></RadioButton>
+            <RadioButton Name="lower_case" Content="lowercase" GroupName="newCase"  Margin="5"></RadioButton>
+            <RadioButton Name="namenormalize" Content="Name_normalize" GroupName="newCase" Margin="5"></RadioButton>
+            <Button Content="Add to list" Width="80" Height="25" Name="ContentControl_AddButton" Click="ContentControl_AddButton_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>

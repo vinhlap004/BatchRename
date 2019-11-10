@@ -19,9 +19,33 @@ namespace BatchRename
     /// </summary>
     public partial class NewCaseControl : Window
     {
-        public NewCaseControl()
+        NewCaseArgs myArgs;
+        public NewCaseControl(StringArgs args)
         {
             InitializeComponent();
+            myArgs = args as NewCaseArgs;
+       
+        }
+
+        private void ContentControl_AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (upper_case.IsChecked==true)
+            {
+                myArgs.optionNewCase = 1;
+            }
+            else
+            {
+                if(lower_case.IsChecked==true)
+                {
+                    myArgs.optionNewCase = 2;
+                }
+                else
+                {
+                    myArgs.optionNewCase = 3;
+                }
+            }
+            DialogResult = true;
+            Close();
         }
     }
 }
