@@ -339,6 +339,16 @@ namespace BatchRename
             UniqueNameControl uniqueName = new UniqueNameControl();
             uniqueName.ShowDialog();
         }
+
+        private void PreviewFiles_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PreviewFolders_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 }
