@@ -21,7 +21,7 @@
 
         <StackPanel Margin="5 0 0 5" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal">
-                <Button Background="White">
+                <Button Background="White" Name="Refresh_Button" Click="Refresh_Button_Click">
                     <StackPanel Orientation="Horizontal" >
                         <Image Source="Images/Refresh.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
                         <TextBlock Text="Refresh" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 5 0"/>
@@ -39,7 +39,7 @@
                         <Image Source="Images/Load.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 3 3 3" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
-                <Button Background="White">
+                <Button Background="White" Name="Save_ListAction_Button" Click="Save_ListAction_Button_Click">
                     <StackPanel Orientation="Horizontal" >
                         <Image Source="Images/Save.png" Width="10" Height="10" VerticalAlignment="Center" Margin="3 0 0 0" HorizontalAlignment="Center"/>
                     </StackPanel>

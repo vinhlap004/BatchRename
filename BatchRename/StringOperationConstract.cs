@@ -393,7 +393,8 @@ namespace BatchRename
             var start = args.Start;
             var end = args.End;
             var before = args.Before;
-
+            if (input.Length < 13)
+                return input;
             string firstString = input.Substring(start, end).Trim();
             string secondString = input.Substring(end).Trim();
             string result = "";

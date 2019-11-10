@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.IO.Abstractions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -185,7 +186,26 @@ namespace BatchRename
 
         private void StartBatchFolder_Button_Click(object sender, RoutedEventArgs e)
         {
+            //vd thêm số 1 vào tên file
+            if (_fileFolder != null)
+            {
+                List<FolderName> folders = new List<FolderName>();
+                foreach (var folder in _fileFolder)
+                {
+                    string file_name;
 
+                    FolderName folder1 = new FolderName();
+                    foreach (var action in _actions)
+                    {
+                        System.IO.Directory.Move( folder.pathFolder + action.Operate(folder.nameFolder), folder.pathFolder + folder.nameFolder);
+                        System.IO.Directory.Move(folder.pathFolder + folder.nameFolder, folder.pathFolder + action.Operate(folder.nameFolder)); //đổi tên file đó thành tên file mới đã được mã hóa
+                        folder1.newFolderName = action.Operate(folder.nameFolder);
+                        folder.nameFolder = folder.nameFolder;
+                    }
+                    folders.Add(folder);
+                }
+                FileListView.ItemsSource = folders;
+            }
         }
 
         private void PreviewFolders_Button_Click(object sender, RoutedEventArgs e)
@@ -239,9 +259,6 @@ namespace BatchRename
         }
 
 
-
-
-        ButtonClickTimes btnClickTimes = new ButtonClickTimes();
 
         private void Move_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -340,6 +357,14 @@ namespace BatchRename
         private void Save_ListAction_Button_Click(object sender, RoutedEventArgs e)
         {
 
+           
+        }
+
+        private void Refresh_Button_Click(object sender, RoutedEventArgs e)
+        {
+            _actions.Clear();
+            _fileFolder.Clear();
+            _fileNames.Clear();
         }
     }
 
