@@ -30,18 +30,34 @@ namespace BatchRename
 
         private void Add_MoveMenthod_Button_Click(object sender, RoutedEventArgs e)
         {
-            myargs.Start = int.Parse(Move_Start_TextBox.Text);
-            myargs.End = int.Parse(Move_End_TextBox.Text);
-            if(Move_To_After.IsChecked==true)
+            if(Move_Start_TextBox.Text=="" || Move_End_TextBox.Text == "")
             {
-                myargs.Before = false;
+                MessageBox.Show("You need input Start and End");
             }
             else
             {
-                myargs.Before = true;
+                try
+                {
+                    myargs.Start = int.Parse(Move_Start_TextBox.Text);
+                    myargs.End = int.Parse(Move_End_TextBox.Text);
+                    if (Move_To_After.IsChecked == true)
+                    {
+                        myargs.Before = false;
+                    }
+                    else
+                    {
+                        myargs.Before = true;
+                    }
+                    DialogResult = true;
+                    Close();
+                }
+                catch
+                {
+                    MessageBox.Show("You need input a number");
+                }
+                
+              
             }
-            DialogResult = true;
-            Close();
         }
     }
 }

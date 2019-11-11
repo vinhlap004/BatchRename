@@ -26,8 +26,8 @@ namespace BatchRename
         {
             InitializeComponent();
             myArgs = args as ReplaceArgs;
-            Replace_From_TextBox.Text = "";
-            Replace_To_TextBox.Text = "";
+            Replace_From_TextBox.Text = myArgs.From;
+            Replace_To_TextBox.Text = myArgs.To;
 
         }
 

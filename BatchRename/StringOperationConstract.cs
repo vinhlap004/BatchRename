@@ -61,7 +61,7 @@ namespace BatchRename
 
         public abstract StringOperation Clone();
 
-        public abstract void Config();
+        public abstract bool Config();
         public abstract string Operate(string origin,string extension);
     }
 
@@ -75,13 +75,13 @@ namespace BatchRename
             get
             {
                 var args = Args as ReplaceArgs;
-                if(args.ReplaceName== true)
+                if(args.ReplaceName == true)
                 { 
-                return $"Replace Name from {args.From} to {args.To}";
+                return $"Replace Name from '{args.From}' to '{args.To}'";
                 }
                 else
                 {
-                    return $"Replace Extension from {args.From} to {args.To}";
+                    return $"Replace Extension from '{args.From}' to '{args.To}'";
                 }
             }
         }
@@ -101,14 +101,16 @@ namespace BatchRename
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public override void Config()
+        public override bool Config()
         {
             var screen = new ReplaceControl(Args);
             if (screen.ShowDialog() == true)
             {
                 PropertyChanged?.Invoke(this,
                     new PropertyChangedEventArgs("Description"));
+                return true;
             }
+            return false;
         }
 
         public override string Operate(string origin, string extension)
@@ -116,9 +118,11 @@ namespace BatchRename
             var args = Args as ReplaceArgs;
             var from = args.From;
             var to = args.To;
+            if (from == "" && to == "")
+                return origin + extension;
             if(extension==null)
             {
-                return origin.Replace(from, to) + extension;
+                return origin.Replace(from, to);
             }
             else
             {
@@ -168,14 +172,16 @@ namespace BatchRename
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public override void Config()
+        public override bool Config()
         {
             var screen = new NewCaseControl(Args);
             if (screen.ShowDialog() == true)
             {
                 PropertyChanged?.Invoke(this,
                     new PropertyChangedEventArgs("Description"));
+                return true;
             }
+            return false;
         }
 
         public override string Operate(string origin, string extension)
@@ -323,14 +329,16 @@ namespace BatchRename
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public override void Config()
+        public override bool Config()
         {
             var screen = new FullNameNormalizeControl(Args);
             if (screen.ShowDialog() == true)
             {
                 PropertyChanged?.Invoke(this,
                     new PropertyChangedEventArgs("Description"));
+                return true;
             }
+            return false;
         }
 
         public override string Operate(string origin, string extension)
@@ -395,14 +403,16 @@ namespace BatchRename
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public override void Config()
+        public override bool Config()
         {
             var screen = new MoveControl(Args);
             if (screen.ShowDialog() == true)
             {
                 PropertyChanged?.Invoke(this,
                     new PropertyChangedEventArgs("Description"));
+                return true;
             }
+            return false;
         }
 
         public override string Operate(string origin, string extension)
@@ -414,11 +424,11 @@ namespace BatchRename
             var end = args.End;
             var before = args.Before;
             if (input.Length <= end-start)
-                return input;
+                return input+extension;
             string firstString = input.Substring(start, end).Trim();
             string secondString = input.Substring(end).Trim();
             string result = "";
-
+            
             if (before == true)
             {
                 result = firstString + " " + secondString;
@@ -457,14 +467,16 @@ namespace BatchRename
         }
 
        public event PropertyChangedEventHandler PropertyChanged;
-        public override void Config()
+        public override bool Config()
         {
             var screen = new UniqueNameControl(Args);
             if (screen.ShowDialog() == true)
             {
                 PropertyChanged?.Invoke(this,
                     new PropertyChangedEventArgs("Description"));
+                return true;
             }
+            return false;
         }
 
         public override string Operate(string origin, string extension)
