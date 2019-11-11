@@ -357,6 +357,7 @@ namespace BatchRename
                                 if (_fileNames.IndexOf(file) != i && newname == _fileNames[i].nameFile)
                                 {
                                     newname = Path.GetFileNameWithoutExtension(file.pathFile + newname);
+                                   
                                     newname += $"({check})" + file_extension;
                                     error = $"File name is exists. Change file name to {newname}";
                                     check++;

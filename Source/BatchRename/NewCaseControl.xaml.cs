@@ -24,7 +24,7 @@ namespace BatchRename
         {
             InitializeComponent();
             myArgs = args as NewCaseArgs;
-            
+
         }
 
         private void ContentControl_AddButton_Click(object sender, RoutedEventArgs e)

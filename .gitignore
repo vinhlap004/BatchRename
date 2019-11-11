@@ -1,7 +1,0 @@
-#ignore files
-*.exe
-
-#ignore folders
-.vs/
-
-obj/

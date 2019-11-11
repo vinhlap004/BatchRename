@@ -75,9 +75,9 @@ namespace BatchRename
             get
             {
                 var args = Args as ReplaceArgs;
-                if(args.ReplaceName == true)
-                { 
-                return $"Replace Name from '{args.From}' to '{args.To}'";
+                if (args.ReplaceName == true)
+                {
+                    return $"Replace Name from '{args.From}' to '{args.To}'";
                 }
                 else
                 {
@@ -135,7 +135,7 @@ namespace BatchRename
         }
     }
 
-    class NewCaseOperation : StringOperation
+    class NewCaseOperation : StringOperation,INotifyPropertyChanged
     {
         public override string Name => "New Case";
 
@@ -150,7 +150,7 @@ namespace BatchRename
                 }
                 else
                 {
-                    if(args.optionNewCase ==2)
+                    if(args.optionNewCase == 2)
                     {
                         return $"Make name lower case";
                     }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="NewCaseControl" Height="200" Width="500">
     <Grid>
-        <StackPanel Margin="10 10 10  10">
+        <StackPanel Margin="10 10 10 10">
             <RadioButton Name="upper_case" Content="UPPERCASE" GroupName="newCase" Margin="5" IsChecked="True"></RadioButton>
             <RadioButton Name="lower_case" Content="lowercase" GroupName="newCase"  Margin="5"></RadioButton>
             <RadioButton Name="namenormalize" Content="Name_normalize" GroupName="newCase" Margin="5"></RadioButton>

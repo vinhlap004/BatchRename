@@ -55,8 +55,7 @@ namespace BatchRename
                 {
                     MessageBox.Show("You need input a number");
                 }
-                
-              
+
             }
         }
     }
